@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="cookielogin.js"></script>
+
 </head>
+
 <body>
-    <h1 id="cookie1">hello</h1>
-    <button id="btnc" onclick="ccookie()">ccookie</button>
-    <button id="btnd" onclick="dcookie()">dcookie</button>
+    <h1>Login</h1>
+    <form id="fromlogin" onsubmit="process()" >
+        <input id="username" name="username"  type="text" required>
+        <input id="password" name="password"  type="password" required>
+        <input id="submit" type="submit">
+    </form>
 </body>
+
 </html>
