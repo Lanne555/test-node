@@ -1,5 +1,6 @@
 {
   "name": "bodin2_score_website",
+  "type": "module",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -13,6 +14,8 @@
     "debug": "^4.3.4",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "firebase": "^10.7.1",
+    "firebase-tools": "^13.0.2",
     "morgan": "^1.10.0",
     "sweetalert2": "^11.10.2"
   }
