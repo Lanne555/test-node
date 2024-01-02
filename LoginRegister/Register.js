@@ -25,12 +25,13 @@ export function registerUser(emailInput, passwordInput, studentIDInput, nameInpu
     return createUserWithEmailAndPassword(auth, emailInput, passwordInput)
         .then(async (credentials) => {
             alert("Register success");
-            var ref = doc(db, "UserAuthList", credentials.user.uid);
+            var ref = doc(db, "UserAuthList",credentials.user.uid);
 
             await setDoc(ref, {
+                Email:emailInput,
                 StudentID: studentIDInput,
                 NameInput: nameInput,
-                    
+                Grade:null     
             });
         })
         .catch(error => {

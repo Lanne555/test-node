@@ -1,7 +1,6 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, doc, setDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, Savegrade} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, doc, updateDoc ,getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 
 // Your web app's Firebase configuration
@@ -14,58 +13,67 @@ const firebaseConfig = {
     appId: "1:488569947854:web:b5fb87aefcb7116e63b29f",
     measurementId: "G-YTZLH338LQ"
 };
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
+export  async function  Addgrade(Gradevar) {
+    alert("Grade fun");
+    //return createUserWithEmailAndPassword(auth, Gradevar)
+    const ref = doc(db, "UserAuthList", UserCreds.uid);
+    await updateDoc(ref, {
+        Grade: Gradevar
+      });
+      const docSnap = await getDoc(ref);
+      //alert("Grade Success Refresh now!")
+      sessionStorage.setItem("user-info", JSON.stringify({
+        StudentID: docSnap.data().StudentID,
+        NameInput: docSnap.data().NameInput,
+        Grade: docSnap.data().Grade
+    }
+    ));
+    window.location.href  = 'home.html'
+    
+}
+const gardebutton = document.getElementById('gardebutton');
+    
+gardebutton.addEventListener('click', () => {
+    // Retrieve input value when gardebutton is pressed
+    let Gradevar = document.getElementById('GradeInput').value;
+    alert("Press")
+    // Call the Addgrade function with the retrieved value
+    Addgrade(Gradevar);
+});
 let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
 let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
 let MsgHead = document.getElementById('msg');
-let Grade = document.getElementById('grade');
 let GreetHead = document.getElementById('greet');
+let Number = document.getElementById('number');
 let signoutBtn = document.getElementById('signoutbutton');
-
-
-
+let gradeinputBtn = document.getElementById('gardebutton');
 let signout = ()=>{
     sessionStorage.removeItem("user-creds");
     sessionStorage.removeItem("user-info");
     window.location.href = 'login.html'
 }
+//let gradeBtn =()=>{
+//    let user = firebase.auth().currentUser;    
+  //  console.log(user);
+   // if (user) {
+    //    console.log(db.collection("UserAuthList").doc(user.uid))
+    //} else {
+      //  alert('user not logged in')
+    //}
+//}
 let CheckCreds =() =>{
     if(!sessionStorage.getItem("user-creds"))
     window.location.href  = 'login.html'
     else{
         MsgHead.innerText =   `email "${UserCreds.email}" logged in`;
         GreetHead.innerText = `คุณ ${UserInfo.NameInput + "  รหัสประจำตัว " + UserInfo.StudentID} `;
-        Grade.innerText = `Grade"${UserInfo.Grade}" `;
-        }
+        Number.innerText = `Grade : ${UserInfo.Grade}`;
+    }
 }
 window.addEventListener('load',CheckCreds);
 signoutBtn.addEventListener('click',signout);
-
-export function Save_grade(gradedata) {
-    return Savegrade(auth, gradedata)
-        .then(async (credentials) => {
-            alert("Register success");
-            var ref = doc(db, "UserAuthList", credentials.user.uid);
-
-            await setDoc(ref, {
-                Grade: gradedata.value  
-            });
-        })
-        .catch(error => {
-            alert(`Registration failed: ${error.message}`);
-        });
-}
-MainForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    // Retrieve input values
-    let gradedata = document.getElementById('Grade').value;
-
-    // Call the registerUser function
-    Save_grade(gradedata);
-});

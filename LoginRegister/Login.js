@@ -30,9 +30,10 @@ export function signInUser(emailInput, passwordInput) {
                 console.log("True");
                 sessionStorage.setItem("user-info", JSON.stringify({
                     StudentID: docSnap.data().StudentID,
-                    NameInput: docSnap.data().NameInput
+                    NameInput: docSnap.data().NameInput,
+                    Grade: docSnap.data().Grade
                 }));
-
+                alert(credentials.user.uid)
                 sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
                 window.open('home.html', '_self');
             }
