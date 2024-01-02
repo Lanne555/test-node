@@ -19,24 +19,19 @@ const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
 export async function Addgrade(Gradevar) {
-    try{
-        const UserCreds = JSON.parse(sessionStorage.getItem("user-creds")); // Move this inside the function
-        const ref = doc(db, "UserAuthList", UserCreds.uid);
-        await updateDoc(ref, {
-            Grade: Gradevar
-        });
-        const docSnap = await getDoc(ref);
-        sessionStorage.setItem("user-info", JSON.stringify({
-            StudentID: docSnap.data().StudentID,
-            NameInput: docSnap.data().NameInput,
-            Grade: docSnap.data().Grade
-        }));
-   
+    alert("Grade fun");
+    const UserCreds = JSON.parse(sessionStorage.getItem("user-creds")); // Move this inside the function
+    const ref = doc(db, "UserAuthList", UserCreds.uid);
+    await updateDoc(ref, {
+        Grade: Gradevar
+    });
+    const docSnap = await getDoc(ref);
+    sessionStorage.setItem("user-info", JSON.stringify({
+        StudentID: docSnap.data().StudentID,
+        NameInput: docSnap.data().NameInput,
+        Grade: docSnap.data().Grade
+    }));
     window.location.href = 'home.html';
-    } catch(error){
-        alert("กรอกไม่ครบ");
-    }
-
 }
 
 const gradeForm = document.getElementById('gradeForm'); // Update this to match your form's actual ID
@@ -57,18 +52,18 @@ let signoutBtn = document.getElementById('signoutbutton');
 let signout = () => {
     sessionStorage.removeItem("user-creds");
     sessionStorage.removeItem("user-info");
-    window.location.href = 'login.html';
+    window.location.href = 'edit.html';
 }
 
 let CheckCreds = () => {
-    if (!sessionStorage.getItem("user-creds"))
+    if (!sessionStorage.getItem("user-creds")){
         window.location.href = 'login.html';
+        console.log("No user")
+    }
     else {
-        MsgHead.innerText = `email "${UserCreds.email}" logged in`;
-        GreetHead.innerText = `คุณ ${UserInfo.NameInput + "  รหัสประจำตัว " + UserInfo.StudentID} `;
         Number.innerText = `Grade : ${UserInfo.Grade}`;
     }
-}
+    }
+
 
 window.addEventListener('load', CheckCreds);
-signoutBtn.addEventListener('click', signout);
