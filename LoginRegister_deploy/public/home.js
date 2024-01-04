@@ -62,6 +62,7 @@ let signout = () => {
 
 let CheckCreds = () => {
     if (!sessionStorage.getItem("user-creds"))
+        
         window.location.href = 'login.html';
     else {
         MsgHead.innerText = `email "${UserCreds.email}" logged in`;

@@ -31,11 +31,17 @@ export function signInUser(emailInput, passwordInput) {
                 sessionStorage.setItem("user-info", JSON.stringify({
                     StudentID: docSnap.data().StudentID,
                     NameInput: docSnap.data().NameInput,
-                    Grade: docSnap.data().Grade
+                    Grade: docSnap.data().Grade,
+                    G41: docSnap.data().G41,
+                    G42: docSnap.data().G42,
+                    G51: docSnap.data().G51,
+                    G52: docSnap.data().G52,
+                    G61: docSnap.data().G61,
+                    G62: docSnap.data().G62,
                 }));
                 alert(credentials.user.uid)
                 sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
-                window.open('home.html', '_self');
+                window.open('a.html', '_self');
             }
         })
         .catch((error) => {
