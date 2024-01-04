@@ -27,7 +27,7 @@ const appFirebase = initializeApp(firebaseConfig);
 const db = getFirestore(appFirebase);
 
 app.use(morgan('combined'));
-app.use(express.static(path.join(__dirname, "./web_file/")));
+app.use(express.static(path.join(__dirname, "./Home")));
 
 app.get("/", (req, res) => {
   res.send('error');
