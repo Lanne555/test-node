@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High School GPA Dashboard</title>
-    <link rel="stylesheet" href="a.css">
+    <link rel="stylesheet" href="b.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Welcome to the High School GPA Dashboard</h1>
+            <h1>EDIT GPA Dashboard</h1>
             
         </header>
 
@@ -24,10 +24,10 @@
                         <div class="logo-container">
                             <img src="https://lh3.googleusercontent.com/proxy/-v9-8uBMtCMLzyDBId5sTfxE_JaEYd6kH5p52D-kWRE05_7pjabmbXVmO-BhZFhqu5Qijvb8wiRqVgUvB97WjpxGicswgJ33vXHwgNM4jBYs9DquPbKufoml5DCEY7E" class="logo" alt="University Logo">
                             <div class="details">
-                                <h3 id="name" class="user"></h3>
-                                <h3 id="stuid" class="user"></h3>
+                                <h3 id="name1" class="user"></h3>
+                                <h3 id="stuid1" class="user"></h3>
                                 <h3 class="user">GPAX:XX</h3>
-                                <a href="b.html"><button>EDIT</button></a>
+                                <form id="editgrade">    <input type="submit" value="Save">
                             </div>
                         </div>
                     </th>
@@ -41,7 +41,13 @@
                             <div class="logo-container">
                                 <img src="https://upload.wikimedia.org/wikipedia/th/thumb/b/be/Seal_of_KMUTNB.svg/1200px-Seal_of_KMUTNB.svg.png" class="logo" alt="University Logo">
                                 <div class="details">
-                                    <h3>University</h3>
+                                    <h3><label for="dropdown">มหาวิทยาลัย:</label> 
+                                        <select id="dropdown" name="University">
+                                        <option value="Un01">จุฬาลงกณ์</option>
+                                        <option value="Un02">Banana</option>
+                                        <option value="Un03">Orange</option>
+                                        <option value="Un0  ">Grape</option>
+                                      </select></h3>
                                     <h3>Faculty</h3>
                                     <h3>Grade</h3>
                                 </div>
@@ -64,41 +70,41 @@
                         <th>TCAS -68</th>
                     </tr>
                     <tr>
+                        
                         <td>
                             <table >
                                 <caption>GPAX เทอม1</caption>
-                                <th id="G41" > </th>
+                                <th ><input type="number" class="rescale-input" id="gpa41"  step="0.01" min="0" max="4" required    ></th>
                                 <th id="G41_Goal"></th>
                             </table>
                             <table >
-                                <caption>เทอม2</caption>
-                                <th id="G42"></th>
-                                <th id="G41_Goal"></th>
+                                <caption>GPAX เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa42"  step="0.01" min="0" max="4" required></th>
+                                <th id="G42_Goal"></th>
+                            </table>
+                        </td>
+
+                        <td>
+                            <table >
+                                <caption>GPAX เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa51"  step="0.01" min="0" max="4" required></th>
+                                <th id="G51_Goal"></th>
+                            </table>
+                            <table >เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa52"  step="0.01" min="0" max="4" required></th>
+                                <th  id="G52_Goal"></th>
                             </table>
                         </td>
 
                         <td>
                             <table>
                                 <caption>GPAX เทอม1</caption>
-                                <th id="G51" ></th>
-                                <th id="G51_Goal"></th>
-                            </table>
-                            <table >
-                                <caption>เทอม2</caption>
-                                <th id="G52"></th>
-                                <th id="G52_Goal"></th>
-                            </table>
-                        </td>
-
-                        <td>
-                            <table >
-                                <caption>GPAX เทอม1</caption>
-                                <th id="G61"></th>
+                                <th ><input type="number" class="rescale-input" id="gpa61"  step="0.01" min="0" max="4" required></th>
                                 <th id="G61_Goal"></th>
                             </table>
                             <table >
-                                <caption>เทอม2</caption>
-                                <th id="G62"></th>
+                                <caption>GPAX เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa62" step="0.01" min="0" max="4" required ></th>
                                 <th id="G62_Goal"></th>
                             </table>
                         </td>
@@ -120,7 +126,7 @@
                                 <th id="G62_Goal">a</th>
                             </table>
                         </td>
-
+                                
                     </tr>
                 </thead>
                 <tbody>
@@ -129,8 +135,9 @@
             </table>
             
         </section>
+    </form>
     </div>
-    <script type="module" src="a.js"></script>
+    <script type="module" src="b.js"></script>
     
 </body>
 

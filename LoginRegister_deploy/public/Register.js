@@ -31,7 +31,7 @@ export function registerUser(emailInput, passwordInput, studentIDInput, nameInpu
                 Email:emailInput,
                 StudentID: studentIDInput,
                 NameInput: nameInput,
-                Grade:null     
+                
             });
         })
         .catch(error => {

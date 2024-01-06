@@ -15,7 +15,7 @@ body {
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: plum;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -23,7 +23,7 @@ body {
 
 /* Style the header with a smoother box shadow */
 header {
-    background-color: #4CAF50;
+    background-color: navy;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -51,7 +51,7 @@ table {
 
 /* Style the table header */
 th {
-    background-color: #4CAF50;
+    background-color: rgb(105, 162, 207);
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -122,6 +122,8 @@ table[bgcolor="yellow"] {
 }
 
 /* Apply the background color directly to the TD element with class 'bad' */
-td.bad {
-    background-color: red;
-}
+.rescale-input {
+    width: 50px;
+     /* You can adjust the width as needed */
+    
+  }
