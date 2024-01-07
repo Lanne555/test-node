@@ -5,13 +5,14 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCXiugat6JBWNZwzmvVUHQLD4TNuo7oVZE",
-    authDomain: "aichat-405615.firebaseapp.com",
-    projectId: "aichat-405615",
-    storageBucket: "aichat-405615.appspot.com",
-    messagingSenderId: "488569947854",
-    appId: "1:488569947854:web:b5fb87aefcb7116e63b29f",
-    measurementId: "G-YTZLH338LQ"
+    apiKey: "AIzaSyDarYSGjrUUaXK3G4inO4HzPoCB0cN6GkE",
+    authDomain: "ai-pdfchat.firebaseapp.com",
+    databaseURL: "https://ai-pdfchat-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ai-pdfchat",
+    storageBucket: "ai-pdfchat.appspot.com",
+    messagingSenderId: "904432794713",
+    appId: "1:904432794713:web:c07566d8873ead81aac548",
+    measurementId: "G-9GKQR3LJMB"
 };
 
 const app = initializeApp(firebaseConfig);

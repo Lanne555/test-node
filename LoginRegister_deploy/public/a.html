@@ -1,138 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>High School GPA Dashboard</title>
-    <link rel="stylesheet" href="a.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>High School GPA Dashboard</title>
+        <link rel="stylesheet" href="a.css">
+    </head>
 
-<body>
-    <div class="container">
-        <header>
-            <h1>Welcome to the High School GPA Dashboard</h1>
-            
-        </header>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Welcome to the High School GPA Dashboard</h1>
+                
+            </header>
 
-        <section class="dashboard">
-           <table class="Info"> <tr>
-            <td class="user"><table>
-                <caption>ข้อมูลนักเรียน</caption>
-                <tr>
-                    <th>
-                        <div class="logo-container">
-                            <img src="http://www.bodin2.ac.th/wp-content/uploads/2021/10/logo-bd2-260x300.png" class="logo" alt="School Logo">
-                            <div class="details">
-                                <h3 id="name" class="user"></h3>
-                                <h3 id="stuid" class="user"></h3>
-                                <h3 class="user">GPAX:XX</h3>
-                                <a href="b.html"><button>EDIT</button></a>
-                            </div>
-                        </div>
-                    </th>
-                </tr>
-            </table></h3></td>
-            <td>
-                <table>
-                    <caption>เป้าหมายมหาวิทยาลัย</caption>
+            <section class="dashboard">
+            <table class="Info"> <tr>
+                <td class="user"><table>
+                    <caption>ข้อมูลนักเรียน</caption>
                     <tr>
                         <th>
                             <div class="logo-container">
-                                <img id="uni_logo" class="logo" alt="University Logo">
+                                <img src="http://www.bodin2.ac.th/wp-content/uploads/2021/10/logo-bd2-260x300.png" class="logo" alt="School Logo">
                                 <div class="details">
-                                    <h3 id="unicall"></h3>
-                                    <h3 id="faccall"></h3>
-                                    <h3>Grade</h3>
+                                    <h3 id="name" class="user"></h3>
+                                    <h3 id="stuid" class="user"></h3>
+                                    <h3 class="user">GPAX:XX</h3>
+                                    <a href="b.html"><button>EDIT</button></a>
                                 </div>
                             </div>
                         </th>
                     </tr>
+                </table></h3></td>
+                <td>
+                    <table>
+                        <caption>เป้าหมายมหาวิทยาลัย</caption>
+                        <tr>
+                            <th>
+                                <div class="logo-container">
+                                    <img id="uni_logo" class="logo" alt="University Logo">
+                                    <div class="details">
+                                        <h3 id="unicall"></h3>
+                                        <h3 id="faccall"></h3>
+                                        <h3>Grade</h3>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </table>
+                    
+                    
+                </td>
+            
+            </tr>
+            </table >
+                <table id="grade-table">
+                    <thead>
+                        <tr>
+                            <th>ม.4</th>
+                            <th>ม.5</th>
+                            <th>ม.6</th>
+                            <th class="TCAS">TCAS -68</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table >
+                                    <caption>GPAX เทอม1</caption>
+                                    <th id="G41" > </th>
+                                    <th id="G41_Goal"></th>
+                                </table>
+                                <table >
+                                    <caption>เทอม2</caption>
+                                    <th id="G42"></th>
+                                    <th id="G41_Goal"></th>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table>
+                                    <caption>GPAX เทอม1</caption>
+                                    <th id="G51" ></th>
+                                    <th id="G51_Goal"></th>
+                                </table>
+                                <table >
+                                    <caption>เทอม2</caption>
+                                    <th id="G52"></th>
+                                    <th id="G52_Goal"></th>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table >
+                                    <caption>GPAX เทอม1</caption>
+                                    <th id="G61"></th>
+                                    <th id="G61_Goal"></th>
+                                </table>
+                                <table >
+                                    <caption>เทอม2</caption>
+                                    <th id="G62"></th>
+                                    <th id="G62_Goal"></th>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table >
+                                    <caption>Portfolio</caption>
+                                    <th id="G61">a</th>
+                                    <th id="G61_Goal">a</th>
+                                </table>
+                                <table>
+                                    <caption>Quota</caption>
+                                    <th id="G62">a</th>
+                                    <th id="G62_Goal">a</th>
+                                </table>
+                                <table >
+                                    <caption>Adminsion</caption>
+                                    <th id="G62">a</th>
+                                    <th id="G62_Goal">a</th>
+                                </table>
+                            </td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add rows dynamically using JavaScript -->
+                    </tbody>
                 </table>
                 
-                
-            </td>
-           
-        </tr>
-           </table >
-            <table id="grade-table">
-                <thead>
-                    <tr>
-                        <th>ม.4</th>
-                        <th>ม.5</th>
-                        <th>ม.6</th>
-                        <th class="TCAS">TCAS -68</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table >
-                                <caption>GPAX เทอม1</caption>
-                                <th id="G41" > </th>
-                                <th id="G41_Goal"></th>
-                            </table>
-                            <table >
-                                <caption>เทอม2</caption>
-                                <th id="G42"></th>
-                                <th id="G41_Goal"></th>
-                            </table>
-                        </td>
-
-                        <td>
-                            <table>
-                                <caption>GPAX เทอม1</caption>
-                                <th id="G51" ></th>
-                                <th id="G51_Goal"></th>
-                            </table>
-                            <table >
-                                <caption>เทอม2</caption>
-                                <th id="G52"></th>
-                                <th id="G52_Goal"></th>
-                            </table>
-                        </td>
-
-                        <td>
-                            <table >
-                                <caption>GPAX เทอม1</caption>
-                                <th id="G61"></th>
-                                <th id="G61_Goal"></th>
-                            </table>
-                            <table >
-                                <caption>เทอม2</caption>
-                                <th id="G62"></th>
-                                <th id="G62_Goal"></th>
-                            </table>
-                        </td>
-
-                        <td>
-                            <table >
-                                <caption>Portfolio</caption>
-                                <th id="G61">a</th>
-                                <th id="G61_Goal">a</th>
-                            </table>
-                            <table>
-                                <caption>Quota</caption>
-                                <th id="G62">a</th>
-                                <th id="G62_Goal">a</th>
-                            </table>
-                            <table >
-                                <caption>Adminsion</caption>
-                                <th id="G62">a</th>
-                                <th id="G62_Goal">a</th>
-                            </table>
-                        </td>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Add rows dynamically using JavaScript -->
-                </tbody>
-            </table>
-            
-        </section>
+            </section>
+          
+        </div>
+        <form id="aichat">
+        <div class="large-page">
+            <h2>Chatbox</h2>
+            <div class="aichatbox">
+                <div class="message">
+                    <p id="userQ"></p>
+                </div>
+                <div class="message">
+                    <p id="botres"> </p>
+                </div>
+                <!-- Add more messages as needed -->
+            </div>
+            <!-- Input area for sending messages -->
+            <div class="input-area">
+                <input type="text" placeholder="Type your message"  id="humantext" required>
+                <button type="submit" id="aisubmit">Send</button>
+            </div>
+        </div>
+        </form>
     </div>
-    <script type="module" src="a.js"></script>
-    
-</body>
+        <script type="module" src="a.js"></script>
+        
+    </body>
 
 </html>
