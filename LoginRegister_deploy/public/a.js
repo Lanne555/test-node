@@ -3,6 +3,8 @@
     import { getFirestore, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+    
+
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -23,16 +25,18 @@
     let G41 = document.getElementById('G41');
     let MSG = document.getElementById('name')
     let Idap = document.getElementById('stuid')
+    let Uni_logo = document.getElementById('uni_logo')
     let G41_Goal = document.getElementById('G41_Goal');
 
-
-
+    let UserFac = JSON.parse(sessionStorage.getItem("user-fac"));
+    let UserUni = JSON.parse(sessionStorage.getItem("user-uni"));
+    let Unicall = document.getElementById('unicall');
+    let Faccall = document.getElementById('faccall');
     let G42 = document.getElementById('G42');
     let G51 = document.getElementById('G51');
     let G52 = document.getElementById('G52');
     let G61 = document.getElementById('G61');
     let G62 = document.getElementById('G62');
-
 
     const ref = doc(db, "UserAuthList", UserCreds.uid);
     const docSnap = await getDoc(ref);
@@ -47,8 +51,33 @@
                 G61: docSnap.data().G61,
                 G62: docSnap.data().G62,
                 G41_Goal: docSnap.data().G41_Goal,
+                University: docSnap.data().University,
+                Faculty: docSnap.data().Faculty
             }));
- 
+    
+    const Aref = doc(db,"University",UserInfo.University,"faculty",UserInfo.Faculty );
+    const AdocSnap = await getDoc(Aref);
+    console.log("True");
+        sessionStorage.setItem("user-fac", JSON.stringify({
+            facname: AdocSnap.data().facname
+                    
+        }));
+
+    
+    const Bref = doc(db,"University",UserInfo.University);
+    const BdocSnap = await getDoc(Bref);
+    console.log("True");
+    sessionStorage.setItem("user-uni", JSON.stringify({
+            uniname: BdocSnap.data().uniname,
+            logo_uni: BdocSnap.data().logo_uni
+                        
+        }));
+        
+
+    
+    
+    
+    
     const ApperG41 = UserInfo.G41.toFixed(2);
     const ApperG42 = UserInfo.G42.toFixed(2);
     const ApperG51 = UserInfo.G51.toFixed(2);
@@ -56,19 +85,7 @@
     const ApperG61 = UserInfo.G61.toFixed(2);
     const ApperG62 = UserInfo.G62.toFixed(2);
     const ApperGoal_G41 = UserInfo.G41_Goal.toFixed(2);
-
-
-    function assignColorBasedOnDifference(gpa, goal) {
-        const difference = gpa - goal;
-
-        if (difference > 0) {
-            return 'good';
-        } else if (difference < 0) {
-            return 'bad';
-        } else {
-            return 'okay';
-        }
-    }
+    
     MSG.innerText = `Name : ${UserInfo.NameInput}`;      
     Idap.innerText = `StudentID : ${UserInfo.StudentID}`;
     G41.innerText = ApperG41
@@ -78,15 +95,6 @@
     G52.innerText =  ApperG52;
     G61.innerText =  ApperG61;
     G62.innerText =  ApperG62;
-
-
-    // GPA data for each grade
-    //const gpaData = {
-    //  'Grade 10': { term1: UserInfo.G41, term2: UserInfo.G42 },
-    // 'Grade 11': { term1: UserInfo.G51, term2: UserInfo.G52 },
-    // 'Grade 12': { term1: UserInfo.G61, term2: UserInfo.G62 }
-        // Add more grades and their corresponding GPA data as needed
-    //};
-
-
-    // Call the function to create the GPA table
+    Unicall.innerText = UserUni.uniname;
+    Faccall.innerText = UserFac.facname;
+    Uni_logo.src = UserUni.logo_uni;

@@ -41,7 +41,7 @@ export function signInUser(emailInput, passwordInput) {
                 }));
                 alert(credentials.user.uid)
                 sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
-                window.open('a.html', '_self');
+                location.replace('a.html');
             }
         })
         .catch((error) => {

@@ -31,9 +31,9 @@ console.log( UserInfo.G42_Goal)
 
 MSG.innerText = `Name : ${UserInfo.NameInput}`;      
 Idap.innerText = `StudentID : ${UserInfo.StudentID}`;
-G41_Goal.innerText = UserInfo.G41_Goal.toFixed(2);
 
-export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5,Gradevar6,UniversityDB) {
+
+export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5,Gradevar6,UniversityDB,FacultyDB) {
     try{
         const UserCreds = JSON.parse(sessionStorage.getItem("user-creds")); // Move this inside the function
         const ref = doc(db, "UserAuthList", UserCreds.uid);
@@ -44,7 +44,8 @@ export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5
             G52: Gradevar4,
             G61: Gradevar5,
             G62: Gradevar6,
-            University: UniversityDB
+            University: UniversityDB,
+            Faculty: UniversityDB+"-"+FacultyDB
         });
         const docSnap = await getDoc(ref);
         sessionStorage.setItem("user-info", JSON.stringify({
@@ -59,10 +60,12 @@ export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5
             G62: docSnap.data().G62,
             G41_Goal: docSnap.data().G41_Goal,
             G42_Goal: docSnap.data().G42_Goal,
-            University: docSnap.data().University
-        }));
-        
-        window.location.href = 'a.html';
+            University: docSnap.data().University,
+            Faculty: docSnap.data().Faculty
+        }
+        ));
+
+        location.replace('a.html');
     } catch(error){
         alert("กรอกไม่ครบ");
     }
@@ -80,7 +83,8 @@ gradeForm.addEventListener('submit',(evt) => {
     let Gradevar61 = Number(document.getElementById('gpa61').value);
     let Gradevar62 = Number(document.getElementById('gpa62').value);
     let University = document.getElementById("dropdown").value;
-     Addgrade(Gradevar41,Gradevar42,Gradevar51,Gradevar52,Gradevar61,Gradevar62,University);
+    let Faculty1 = document.getElementById("dropdown2").value;
+     Addgrade(Gradevar41,Gradevar42,Gradevar51,Gradevar52,Gradevar61,Gradevar62,University,Faculty1);
     
 });
 

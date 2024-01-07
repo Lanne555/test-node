@@ -123,7 +123,7 @@ table[bgcolor="yellow"] {
 
 /* Apply the background color directly to the TD element with class 'bad' */
 .rescale-input {
-    width: 50px;
+    width: 100px;
      /* You can adjust the width as needed */
     
   }
