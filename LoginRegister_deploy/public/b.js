@@ -34,7 +34,7 @@ MSG.innerText = `Name : ${UserInfo.NameInput}`;
 Idap.innerText = `StudentID : ${UserInfo.StudentID}`;
 
 
-export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5,Gradevar6,UniversityDB,FacultyDB) {
+export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5,Gradevar6,UniversityDB,FacultyDB,CurrentDB) {
     try{
         const UserCreds = JSON.parse(sessionStorage.getItem("user-creds")); // Move this inside the function
         const ref = doc(db, "UserAuthList", UserCreds.uid);
@@ -46,7 +46,8 @@ export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5
             G61: Gradevar5,
             G62: Gradevar6,
             University: UniversityDB,
-            Faculty: UniversityDB+"-"+FacultyDB
+            Faculty: UniversityDB+"-"+FacultyDB,
+            Current: Number(CurrentDB)
         });
         const docSnap = await getDoc(ref);
         sessionStorage.setItem("user-info", JSON.stringify({
@@ -62,10 +63,10 @@ export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5
             G41_Goal: docSnap.data().G41_Goal,
             G42_Goal: docSnap.data().G42_Goal,
             University: docSnap.data().University,
-            Faculty: docSnap.data().Faculty
+            Faculty: docSnap.data().Faculty,
+            Current: docSnap.data.Current
         }
         ));
-
         location.replace('a.html');
     } catch(error){
         alert("กรอกไม่ครบ");
@@ -85,7 +86,8 @@ gradeForm.addEventListener('submit',(evt) => {
     let Gradevar62 = Number(document.getElementById('gpa62').value);
     let University = document.getElementById("dropdown").value;
     let Faculty1 = document.getElementById("dropdown2").value;
-     Addgrade(Gradevar41,Gradevar42,Gradevar51,Gradevar52,Gradevar61,Gradevar62,University,Faculty1);
+    let currentterm = document.getElementById("dropdown3").value;
+     Addgrade(Gradevar41,Gradevar42,Gradevar51,Gradevar52,Gradevar61,Gradevar62,University,Faculty1,currentterm);
     
 });
 

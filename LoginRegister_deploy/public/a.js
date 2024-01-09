@@ -29,7 +29,6 @@
     let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
     let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
     UserAi = JSON.parse(sessionStorage.getItem("user-ai"));
-    let G41 = document.getElementById('G41');
     let MSG = document.getElementById('name')
     let Idap = document.getElementById('stuid')
     let Uni_logo = document.getElementById('uni_logo')
@@ -38,14 +37,20 @@
     let UserUni = JSON.parse(sessionStorage.getItem("user-uni"));
     let Unicall = document.getElementById('unicall');
     let Faccall = document.getElementById('faccall');
+    let G41 = document.getElementById('G41');
     let G42 = document.getElementById('G42');
     let G51 = document.getElementById('G51');
     let G52 = document.getElementById('G52');
     let G61 = document.getElementById('G61');
+    let G41_Goal = document.getElementById('G41_Goal');
+    let G42_Goal = document.getElementById('G42_Goal');
+    let G51_Goal = document.getElementById('G51_Goal');
+    let G52_Goal = document.getElementById('G52_Goal');
+    let G61_Goal = document.getElementById('G61_Goal');
     let G62 = document.getElementById('G62');
     let Aisubmit = document.getElementById('aichat');
 
-    console.log(UserAi)
+
     const ref = doc(db, "UserAuthList", UserCreds.uid);
     const docSnap = await getDoc(ref);
             sessionStorage.setItem("user-info", JSON.stringify({
@@ -62,7 +67,17 @@
                 University: docSnap.data().University,
                 Faculty: docSnap.data().Faculty
             }));
-    
+    let zerocount =0;
+    if (UserInfo.G41 == 0) { zerocount=zerocount+1};
+    if (UserInfo.G42 == 0) {zerocount=zerocount+1};
+    if (UserInfo.G51 == 0) {zerocount=zerocount+1};
+    if (UserInfo.G52 == 0){zerocount=zerocount+1};
+    if (UserInfo.G61 == 0) {zerocount=zerocount+1};
+    if (UserInfo.G62 == 0) {zerocount=zerocount+1};
+    console.log(zerocount)
+    let x = ((5 *3.5)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount
+    console.log(x)
+  
     const Aref = doc(db,"University",UserInfo.University,"faculty",UserInfo.Faculty );
     const AdocSnap = await getDoc(Aref);
     console.log("True");
@@ -81,23 +96,23 @@
                         
         }));
     
-        export async function Sendmessage(Humantext){
-        const UserCreds = JSON.parse(sessionStorage.getItem("user-creds")); 
-        const Sref = doc(db,"blog",UserCreds.uid)
-        let Ans =""
-        await setDoc(Sref, {
-            text: Humantext            
-        
-        });
-        sessionStorage.setItem("user-ai", JSON.stringify({
-            text: Humantext
-            
-        }));
-      
-        const SdocSnap = await getDoc(Sref);
-        Ans = SdocSnap.data()
-        console.log(Ans)
-        location.reload();
+    export async function Sendmessage(Humantext){
+    const UserCreds = JSON.parse(sessionStorage.getItem("user-creds")); 
+    const Sref = doc(db,"blog",UserCreds.uid)
+    await setDoc(Sref, {
+        text: Humantext    
+    
+    });
+    const SdocSnap = await getDoc(Sref);    
+    console.log("True");
+    
+    const chatai = {
+        text: SdocSnap.data().text,
+        summary: await SdocSnap.data().summary // Assuming summary is an asynchronous operation
+    };
+
+    sessionStorage.setItem("user-ai", JSON.stringify(chatai));
+    location.reload();
         }          
     
     
@@ -129,6 +144,12 @@
     Unicall.innerText = UserUni.uniname;
     Faccall.innerText = `คณะ ${UserFac.facname}`;  
     Uni_logo.src = UserUni.logo_uni;
-    HumanQ.innerHTML =`User : ${UserAi.text}`;     
-  
-  
+    HumanQ.innerHTML =`User : ${UserAi.text}`;  
+    Botres.innerHTML = `AI : ${UserAi.summary}`  
+    G41_Goal.innerText = x;
+    G42_Goal.innerText = x;
+    G51_Goal.innerText = x;
+    G52_Goal.innerText = x;
+    G61_Goal.innerText = x;
+    
+    

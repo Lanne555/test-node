@@ -134,21 +134,19 @@
         </div>
         <form id="aichat">
         <div class="large-page">
-            <h2>AI Chatbox</h2>
-            <div class="aichatbox">
-                <div class="message">
-                    <p id="userQ"></p>
-                </div>
-                <div class="message">
-                    <p id="botres"> </p>
-                </div>
-                <!-- Add more messages as needed -->
-            </div>
-            <!-- Input area for sending messages -->
-            <div class="input-area">
-                <input type="text" placeholder="Type your message"  id="humantext" required>
-                <button type="submit" id="aisubmit">Send</button>
-            </div>
+            <!-- Widget JavaScript bundle -->
+<script src="https://cloud.google.com/ai/gen-app-builder/client?hl=th">
+    
+</script>
+
+<!-- Search widget element is not visible by default -->
+<gen-search-widget
+  configId="27d259f7-d6af-40dd-97ac-edc8d83be0a9"
+  triggerId="searchWidgetTrigger">
+</gen-search-widget>
+
+<!-- Element that opens the widget on click. It does not have to be an input -->
+<input placeholder="Search here" id="searchWidgetTrigger" />
         </div>
         </form>
     </div>
