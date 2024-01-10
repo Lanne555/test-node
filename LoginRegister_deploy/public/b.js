@@ -60,13 +60,15 @@ export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5
             G52: docSnap.data().G52,
             G61: docSnap.data().G61,
             G62: docSnap.data().G62,
+            Current: docSnap.data().Current,
             G41_Goal: docSnap.data().G41_Goal,
             G42_Goal: docSnap.data().G42_Goal,
             University: docSnap.data().University,
             Faculty: docSnap.data().Faculty,
-            Current: docSnap.data.Current
+            
         }
         ));
+        
         location.replace('a.html');
     } catch(error){
         alert("กรอกไม่ครบ");

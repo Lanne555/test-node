@@ -163,3 +163,11 @@ td.bad {
     border: none;
     cursor: pointer;
 }
+.tcas{
+    color: yellow;
+}
+.logo1{
+    max-width: 10%;
+    height: auto;
+  }
+
