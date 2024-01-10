@@ -87,7 +87,7 @@
     if (UserInfo.G62 == 0) {zerocount=zerocount+1};
     console.log(zerocount)
     console.log(G41_Goal)
-    let x = (((5 *3.5)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
+    let x = (((5 * UserFac.R1)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
     let gpax = ((UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61)/UserInfo.Current).toFixed(2);
   
     const Aref = doc(db,"University",UserInfo.University,"faculty",UserInfo.Faculty );
