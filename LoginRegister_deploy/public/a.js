@@ -17,9 +17,6 @@
         appId: "1:904432794713:web:c07566d8873ead81aac548",
         measurementId: "G-9GKQR3LJMB"
     };
-    let UserAi = " ";
-
-
 
     let Botres =document.getElementById('botres');
     const app = initializeApp(firebaseConfig);
@@ -28,7 +25,6 @@
     const analytics = getAnalytics(app);
     let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
     let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
-    UserAi = JSON.parse(sessionStorage.getItem("user-ai"));
     let MSG = document.getElementById('name')
     let Idap = document.getElementById('stuid')
     let Uni_logo = document.getElementById('uni_logo')
@@ -54,8 +50,6 @@
     let R1gpax = document.getElementById('R1gpax');
     let R2gpax = document.getElementById('R2gpax');
     let R3gpax = document.getElementById('R3gpax');
-    const correct = 'https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2Fcorrect.png?alt=media&token=c3500cd9-e4e1-4db5-8e9a-a5d6616e5f65';
-    const incorrect = 'https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2Fincorrect.png?alt=media&token=4674b049-508a-47bc-8bdd-d48a3da4cc4a'
 
 
     const ref = doc(db, "UserAuthList", UserCreds.uid);
@@ -76,7 +70,7 @@
                 Faculty: docSnap.data().Faculty,
         
             }));
-    console.log(UserInfo)
+    
     let zerocount =0;
     if (UserInfo.G41 == 0) {
          zerocount=zerocount+1};
@@ -85,21 +79,19 @@
     if (UserInfo.G52 == 0){zerocount=zerocount+1};
     if (UserInfo.G61 == 0) {zerocount=zerocount+1};
     if (UserInfo.G62 == 0) {zerocount=zerocount+1};
-    console.log(zerocount)
-    console.log(G41_Goal)
-    let x = (((5 * UserFac.R1)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
-    let gpax = ((UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61)/UserInfo.Current).toFixed(2);
+
+    //console.log(UserUni.uniname)
   
     const Aref = doc(db,"University",UserInfo.University,"faculty",UserInfo.Faculty );
     const AdocSnap = await getDoc(Aref);
     console.log("True");
-        sessionStorage.setItem("user-fac", JSON.stringify({
+    sessionStorage.setItem("user-fac", JSON.stringify({
             facname: AdocSnap.data().facname,
             R1: AdocSnap.data().R1,
             R2: AdocSnap.data().R2,
             R3: AdocSnap.data().R3
         }));
-        console.log(UserFac.R1)
+    
     
     const Bref = doc(db,"University",UserInfo.University);
     const BdocSnap = await getDoc(Bref);
@@ -109,8 +101,9 @@
             logo_uni: BdocSnap.data().logo_uni
                         
         }));
-    
-    
+  
+    let x = (((5 * 3.5)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
+    let gpax = ((UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61)/UserInfo.Current).toFixed(2);
     
     const ApperG41 = UserInfo.G41.toFixed(2);
     const ApperG42 = UserInfo.G42.toFixed(2);
@@ -195,7 +188,7 @@ if (gpax >= UserFac.R1){
     R3gpax.innerText = ApperR3;
     //HumanQ.innerHTML =`User : ${UserAi.text}`;  
     //Botres.innerHTML = `AI : ${UserAi.summary}`  
-    if(x=='-Infinity'){
+    if(x=='-Infinity'|| x =='Infinity' ){
         alert("ข้อมูลไม่ถูกต้อง กรุณากรอกเกรดตามจำนวนที่มีอยู่")
         Currentpage.innerText = `GPAX ปัจจุบันผิดพลาด`;
         location.replace('b.html');
