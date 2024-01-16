@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>High School GPA Dashboard</title>
+        <link rel="stylesheet" href="a.css">
+        <style>
+            /* Style for the popup */
+            #popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="popup">
+            <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide_01.PNG?alt=media&token=40abf747-aa04-4564-ac3e-3a0700f1897a" class="img" id="originalImage">
+            <button onclick="showAnotherImage()" class="other-button" id="press">Press</button>
+            <div id="secondImageContainer" style="display: none;">
+            <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide_03.PNG?alt=media&token=11bbc7fb-0d99-4774-8bb0-5744f1cc58b2" class="img" id="secondImage">
+            <button onclick="closePopup()" class="other-button">Close</button>
+        </div>
+        </div>
+        <h1>ผู้ใช้ใหม่ต้องแก้ไขเกรดก่อน ข้อมุลจึงจะแสดงผล</h1>
+        <h2>หากข้อมูลไม่แสดงผลโปรดกดโหลดหน้าใหม่</h2>
+        <div class="container">
+            <header>
+                <h1>Welcome to the High School GPA Dashboard</h1>
+                
+            </header>
+
+            <section class="dashboard">
+            <table class="Info"> <tr>
+                <td class="user"><table>
+                    <caption>ข้อมูลนักเรียน</caption>
+                    <tr>
+                        <th>
+                            <div class="logo-container">
+                                <img src="https://storage.googleapis.com/aichat-405615.appspot.com/University_logo/bd2.png" class="logo" alt="School Logo">
+                                <div class="details">
+                                    <h3 id="name" class="user"></h3>
+                                    <h3 id="stuid" class="user"></h3>
+                                    <h3 id='current' class="user"></h3>
+                                    <a href="b.html" ><button>EDIT</button></a>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </table></h3></td>
+                <td>
+                    <table>
+                        <caption>เป้าหมายมหาวิทยาลัย</caption>
+                        <tr>
+                            <th>
+                                <div class="logo-container">
+                                    <img id="uni_logo" class="logo" alt="University Logo">
+                                    <div class="details">
+                                        <h3 id="unicall" class="user"></h3>
+                                        <h3 id="faccall" class="user"></h3>
+                                        <h3 id="compare" class="user"></h3>
+                                        
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </table>
+                    
+                    
+                </td>
+            
+            </tr>
+            </table >
+                <table id="grade-table">
+                    <thead>
+                        <tr>
+                            <th>ม.4</th>
+                            <th>ม.5</th>
+                            <th>ม.6</th>
+                            <th class="TCAS">TCAS -68</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table >
+                                    <caption>GPA เทอม1</caption>
+                                    <th id="G41" > </th>
+                                    <th id="G41_Goal"></th>
+                                </table>
+                                <table >
+                                    <caption>GPA เทอม2</caption>
+                                    <th id="G42"></th>
+                                    <th id="G42_Goal"></th>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table>
+                                    <caption>GPA เทอม1</caption>
+                                    <th id="G51" ></th>
+                                    <th id="G51_Goal"></th>
+                                </table>
+                                <table >
+                                    <caption>GPA เทอม2</caption>
+                                    <th id="G52"></th>
+                                    <th id="G52_Goal"></th>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table >
+                                    <caption>GPA เทอม1</caption>
+                                    <th id="G61"></th>
+                                    <th id="G61_Goal"></th>
+                                </table>
+                                <table >
+                                    <caption>GPA เทอม2</caption>
+                                    <th id="G62"></th>
+                                    <th id="G62_Goal"></th>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table >
+                                    <caption>Portfolio</caption>
+                                    <th id="check_r1">a</th>
+                                    <th id="R1gpax"class="tcas">a</th>
+                                </table>
+                                <table>
+                                    <caption>Quota</caption>
+                                    <th id="check_r2">a</th>
+                                    <th id="R2gpax" class="tcas">a</th>
+                                </table>
+                                <table >
+                                    <caption>Adminsion</caption>
+                                    <th id="check_r3">a</th>
+                                    <th id="R3gpax"class="tcas">a</th>
+                                </table>
+                            </td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add rows dynamically using JavaScript -->
+                    </tbody>
+                </table>
+                
+            </section>
+          
+        </div>
+        <form id="aichat">
+        <div class="large-page">
+            <button id="signout" type="button" class="sign-out-button">signout</button>        
+            <h2>แนะแนวมหาวิทยาลัยด้วยปัญญาประดิษฐ์</h2>
+            <!-- Widget JavaScript bundle -->
+<script src="https://cloud.google.com/ai/gen-app-builder/client?hl=th">
+    
+</script>
+
+<!-- Search widget element is not visible by default -->
+<gen-search-widget
+  configId="27d259f7-d6af-40dd-97ac-edc8d83be0a9"
+  triggerId="searchWidgetTrigger">
+</gen-search-widget>
+
+<!-- Element that opens the widget on click. It does not have to be an input -->
+<input placeholder="Search here" id="searchWidgetTrigger" class="input_bar">
+<iframe src="https://course.mytcas.com/universities" height="500" frameborder="0"></iframe>
+
+</div>
+        </form>
+        
+    </div>
+        <script type="module" src="a.js"></script>
+        <script>
+            // Function to show the popup
+            function showAnotherImage() {
+                var button = document.getElementById('press');
+                button.style.display = 'none';
+                document.getElementById("originalImage").style.display = "none";
+                document.getElementById("secondImageContainer").style.display = "block";
+            }
+
+            function showPopup() {
+                document.getElementById('popup').style.display = 'block';
+            }
+        
+            // Function to close the popup
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+            }
+        
+            // Event listener to trigger the popup after the site finishes loading
+            window.addEventListener('load', showPopup);
+        </script>
+        
+    </body>
+
+</html>

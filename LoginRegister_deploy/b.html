@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School GPA Dashboard</title>
+    <link rel="stylesheet" href="b.css">
+    <style>
+        /* Style for the popup */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="popup">
+        <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide-02.png?alt=media&token=1cb33425-3ad0-44cf-a11e-ee7de2ff7ec5" class="img">
+        <button onclick="closePopup()" class="other-button">Close</button>
+    </div>
+    <div class="container">
+        <header>
+            <h1>EDIT GPA Dashboard</h1>
+            
+        </header>
+
+        <section class="dashboard">
+           <table class="Info"> <tr>
+            <td class="user"><table>
+                <caption>ข้อมูลนักเรียน</caption>
+                <tr>
+                    <th>
+                        <div class="logo-container">
+                            <img src="http://www.bodin2.ac.th/wp-content/uploads/2021/10/logo-bd2-260x300.png" class="logo" alt="University Logo">
+                            <div class="details">
+                                <h3 id="name1" class="user"></h3>
+                                <h3 id="stuid1" class="user"></h3>
+                                <h3 class="user"><label>ผลเกรดล่าสุด</label>
+                                    <select id="dropdown3" name="University">
+                                    <option value="1">ม.4 เทอม1</option>
+                                    <option value="2">ม.4 เทอม2</option>
+                                    <option value="3">ม.5 เทอม1</option>
+                                    <option value="4">ม.5 เทอม2</option>
+                                    <option value="5">ม.6 เทอม1</option>
+                                    <option value="6">ม.6 เทอม2</option>
+                                  </select></h3>
+                                <form id="editgrade">    <input type="submit" value="Save">
+                                
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </table></h3></td>
+            <td>
+                <table>
+                    <caption>เป้าหมายมหาวิทยาลัย</caption>
+                    <tr>
+                        <th>
+                            <div class="logo-container">
+                                <img src="data:image/jpeg;base64,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" class="logo" alt="University Logo">
+                                <div class="details">
+                                    <h3><label for="dropdown">มหาวิทยาลัย:</label> 
+                                        <select id="dropdown" name="University">
+                                            <option value="custom">กำหนดเอง</option>
+                                            <option value="cu">จุฬาลงกณ์</option>
+                                        <option value="ku">เกษตร</option>
+                                        <option value="Un03">a</option>
+                                        <option value="Un0  ">b</option>
+                                      </select></h3>
+                                    <h3><label for="dropdown2">คณะ:</label> 
+                                        <select id="dropdown2" name="University">
+                                        <option value="1">กำหนด1.00</option>
+                                        <option value="1.5">กำหนด1.50</option>
+                                        <option value="2">กำหนด2.00</option>
+                                        <option value="2.5">กำหนด2.50</option>
+                                        <option value="3">กำหนด3.00</option>
+                                        <option value="3.5">กำหนด3.50</option>
+                                        <option value="a">อักษรศาสตร์</option>
+                                        <option value="ar">สถาปัตยกรรมศาสตร์</option>
+                                        <option value="ca">นิเทศศาสตร์</option>
+                                        <option value="co">พาณิชยศาสตร์และการบัญชี</option>
+                                        <option value="de">ทันตแพทยศาสตร์</option>
+                                        <option value="ec">เศรษฐศาสตร์</option>
+                                        <option value="ed">ครุศาสตร์</option>
+                                        <option value="en">วิศวกรรมศาสตร์</option>
+                                        <option value="fa">ศิลปกรรมศาสตร์</option>
+                                        <option value="la">นิติศาสตร์</option>
+                                        <option value="me">แพทยศาสตร์</option>
+                                        <option value="nu">พยาบาลศาสตร์</option>
+                                        <option value="po">รัฐศาสตร์</option>
+                                        <option value="ps">เภสัชศาสตร์</option>
+                                        <option value="py">จิตวิทยา</option>
+                                        <option value="sc">วิทยาศาสตร์</option>
+                                        <option value="ss">วิทยาศาสตร์การกีฬา</option>
+                                        <option value="vs">สัตวแพทยศาสตร์</option>
+                                      </select></h3>
+                                    
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+                
+                
+            </td>
+           
+        </tr>
+           </table >
+            <table id="grade-table">
+                <thead>
+                    <tr>
+                        <th>ม.4</th>
+                        <th>ม.5</th>
+                        <th>ม.6</th>
+                        
+                    </tr>
+                    <tr>
+                        
+                        <td>
+                            <table >
+                                <caption>GPA เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa41"  step="0.01" min="0" max="4" required></th>
+                                
+                            </table>
+                            <table >
+                                <caption>GPA เทอม2</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa42"  step="0.01" min="0" max="4" required></th>
+                                
+                            </table>
+                        </td>
+
+                        <td>
+                            <table >
+                                <caption>GPA เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa51"  step="0.01" min="0" max="4" required></th>
+                                
+                            </table>
+                            <table ><caption>GPA เทอม2</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa52"  step="0.01" min="0" max="4" required></th>
+
+                            </table>
+                        </td>
+
+                        <td>
+                            <table>
+                                <caption>GPA เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa61"  step="0.01" min="0" max="4"  required></th>
+                                
+                            </table>
+                            <table >
+                                <caption>GPA เทอม2</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa62" step="0.01" min="0" max="4" required ></th>
+                                
+                            </table>
+                        </td>
+
+                        
+                                
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Add rows dynamically using JavaScript -->
+                </tbody>
+            </table>
+            
+        </section>
+    </form>
+    </div>
+    <script type="module" src="b.js"></script>
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+    
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    
+        // Event listener to trigger the popup after the site finishes loading
+        window.addEventListener('load', showPopup);
+    </script>
+    
+</body>
+
+</html>

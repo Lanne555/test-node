@@ -1,0 +1,221 @@
+/* Reset some default styles to ensure consistent rendering */
+body, h1, h2, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a basic style to the body for better readability */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Style the container with a smoother box shadow */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the header with a smoother box shadow */
+header {
+    background-color: #a85e9e;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the dashboard section with a smoother box shadow */
+.dashboard {
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* Style the GPA table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: px;
+    overflow: hidden; /* Ensure smoother borders */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the table header */
+th {
+    background-color: #1c3977;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #fff; /* Smoother borders */
+}
+
+/* Style the table cells */
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #dddddd; /* Smoother borders */
+}
+
+/* Apply a background color to alternate rows for better readability */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style the caption for each subtable */
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style the goal cells differently */
+th[id$="_Goal"] {
+    color:aqua;
+}
+
+/* Style the yellow-colored subtables */
+table[bgcolor="yellow"] {
+    background-color: yellow;
+    border: 1px solid #ddd; /* Smoother borders */
+}
+
+/* Add styles for goal exceeded */
+.th, .td {
+    vertical-align: top;
+}
+
+.Info {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.user {
+    text-align: left;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 90px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-container h3 {
+    margin: 0;
+}
+
+/* Apply the background color directly to the TD element with class 'bad' */
+td.bad {
+    background-color: red;
+}
+.large-page {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(208, 216, 173);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.chatbox {
+    max-height: 300px; /* Set a maximum height for the chatbox */
+    overflow-y: auto; /* Enable vertical scrolling for the chatbox */
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.input-area {
+    margin-top: 20px;
+}
+
+.input-area input {
+    width: 70%;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.input-area button {
+    padding: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.tcas{
+    color: yellow;
+}
+.logo1{
+    max-width: 10%;
+    height: auto;
+  }
+/* Basic styling for the sign-out button */
+.sign-out-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000; /* Set your desired background color */
+    color: #ffffff; /* Set your desired text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .other-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #076827; /* Set your desired background color */
+    color: #ffffff; /* Set your desired text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  /* Hover effect */
+  .sign-out-button:hover {
+    background-color: #cc0000; /* Change the background color on hover */
+  }
+  
+  /* Additional styles, if needed */
+  .sign-out-button:focus {
+    outline: none; /* Remove outline on focus for better aesthetics */
+  }
+  .logo {
+    size: 80%; /* Maintain the aspect ratio */
+  }
+  .input_bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
