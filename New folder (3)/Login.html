@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบประกาศคะแนน</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <img class="logo" src="Bodin2.png">
+    <div class="plan">
+        <form id="MainForm" class="w-25 m-4">
+            <h2 class="text1">ระบบประกาศคะแนน</h2>
+            <h2 class="text2">Login</h2>
+            <div class="inputtext">
+                <h1 class="textlabel">Email</h1>
+                <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" autocomplete="off">
+            </div>
+            <div class="inputtext">
+                <h1 class="textlabel">Password</h1>
+                <input type="password" class="form-control" id="PasswordInput" placeholder="Password" autocomplete="off">
+                <div class="checkbox">
+                    <input class="showpassword" type="checkbox" onclick="myFunction()">
+                    <h6  class="textshowpassword">showpassword</h1>
+                
+                </div>
+            </div>
+            
+            <div class="btn0">
+            <button type="submit" class="btn1" >Login</button>
+            <a href="Register.html"> <button type="button" class="btn2" >Register</button> </a>
+            </div>
+        </form>
+    </div>
+    <script>
+        function myFunction() {
+    var x = document.getElementById("PasswordInput");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+    }
+    </script> 
+</body>
+</html>
