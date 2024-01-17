@@ -70,7 +70,7 @@
                 Faculty: docSnap.data().Faculty,
         
             }));
-    
+           
     let zerocount =0;
     if (UserInfo.G41 == 0) {
          zerocount=zerocount+1};
@@ -82,6 +82,7 @@
 
     //console.log(UserUni.uniname)
   
+    try{
     const Aref = doc(db,"University",UserInfo.University,"faculty",UserInfo.Faculty );
     const AdocSnap = await getDoc(Aref);
     console.log("True");
@@ -91,7 +92,10 @@
             R2: AdocSnap.data().R2,
             R3: AdocSnap.data().R3
         }));
-    
+    }catch(error){
+        alert("ข้อมูลไม่ถูกต้อง กรุณาเลือกเป้าหมายให้คณะและมหาวิทยาลัยสัมพันธ์กัน")
+        location.replace('b.html');
+    }
     
     const Bref = doc(db,"University",UserInfo.University);
     const BdocSnap = await getDoc(Bref);
@@ -104,7 +108,13 @@
   
     let x = (((5 * UserFac.R1)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
     let gpax = ((UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61)/UserInfo.Current).toFixed(2);
-    
+    if(x=='-Infinity'|| x =='Infinity' ){
+        alert("ข้อมูลไม่ถูกต้อง กรุณากรอกเกรดตามจำนวนที่มีอยู่")
+        Currentpage.innerText = `GPAX ปัจจุบันผิดพลาด`;
+        location.replace('b.html');
+    }else{
+        Currentpage.innerText = `GPAX ปัจจุบัน : `+gpax;
+    }
     const ApperG41 = UserInfo.G41.toFixed(2);
     const ApperG42 = UserInfo.G42.toFixed(2);
     const ApperG51 = UserInfo.G51.toFixed(2);
@@ -192,13 +202,7 @@ if (gpax >= UserFac.R1){
     Compare.style.color ='gold'
     //HumanQ.innerHTML =`User : ${UserAi.text}`;  
     //Botres.innerHTML = `AI : ${UserAi.summary}`  
-    if(x=='-Infinity'|| x =='Infinity' ){
-        alert("ข้อมูลไม่ถูกต้อง กรุณากรอกเกรดตามจำนวนที่มีอยู่")
-        Currentpage.innerText = `GPAX ปัจจุบันผิดพลาด`;
-        location.replace('b.html');
-    }else{
-        Currentpage.innerText = `GPAX ปัจจุบัน : `+gpax;
-    }
+    
 // Add this function to your existing JavaScript code
 function changeTextColorBasedOnGoal(actualGPA, goalGPA, goalElement) {
     if (actualGPA > goalGPA) {
