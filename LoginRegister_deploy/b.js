@@ -27,7 +27,7 @@ let G41_Goal = document.getElementById('G41_Goal');
 
 
 
-
+console.log(UserInfo)
 
 MSG.innerText = `Name : ${UserInfo.NameInput}`;      
 Idap.innerText = `StudentID : ${UserInfo.StudentID}`;
@@ -64,8 +64,9 @@ export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5
             G61: Gradevar5,
             G62: Gradevar6,
             University: uniDropdown.value,
-            Faculty: facDropdown.value
-        });
+            Faculty: facDropdown.value,
+            Current: Number(termDropdown.value)        
+            });
         const docSnap = await getDoc(ref);
         sessionStorage.setItem("user-info", JSON.stringify({
             StudentID: docSnap.data().StudentID,
