@@ -82,7 +82,6 @@
 
     //console.log(UserUni.uniname)
   
-    try{
     const Aref = doc(db,"University",UserInfo.University,"faculty",UserInfo.Faculty );
     const AdocSnap = await getDoc(Aref);
     console.log("True");
@@ -92,10 +91,7 @@
             R2: AdocSnap.data().R2,
             R3: AdocSnap.data().R3
         }));
-    }catch(error){
-        alert("ข้อมูลไม่ถูกต้อง กรุณาเลือกเป้าหมายให้คณะและมหาวิทยาลัยสัมพันธ์กัน")
-        location.replace('b.html');
-    }
+    
     
     const Bref = doc(db,"University",UserInfo.University);
     const BdocSnap = await getDoc(Bref);
