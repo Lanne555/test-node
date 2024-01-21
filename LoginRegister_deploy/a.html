@@ -33,7 +33,8 @@
             <button onclick="closePopup()" class="other-button">Close</button>
         </div>
         </div>
-        
+        <h1>เมื่อเข้าสู่ระบบเเล้วโปรดกดรีโหลดหน้าเว็ปเพื่อแสดงข้อมูล</h1>
+        <h2> *หมายเหตุ เกรดขั้นตํ่าคือการคำนวนเกรดเฉลี่ยขั้นตํ่าในเทอมที่เหลือ(5เทอม)ที่จะเฉลี่ยทั้งหมดแล้วเท่ากับเป้าหมาย</h2>
         <div class="container">
             <header>
                 <h1>Welcome to the High School GPA Dashboard</h1>
@@ -41,6 +42,7 @@
             </header>
 
             <section class="dashboard">
+               
             <table class="Info"> <tr>
                 <td class="user"><table>
                     <caption>ข้อมูลนักเรียน</caption>
@@ -66,8 +68,8 @@
                                 <div class="logo-container">
                                     <img id="uni_logo" class="logo" alt="University Logo">
                                     <div class="details">
-                                        <h3 id="unicall" class="user"></h3>
-                                        <h3 id="faccall" class="user"></h3>
+                                        <h3 id="unicall" class="uni"></h3>
+                                        <h3 id="faccall" class="fac"></h3>
                                         <h3 id="compare" class="user"></h3>
                                         
                                     </div>
@@ -78,7 +80,7 @@
                     
                     
                 </td>
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart" width="700" height="400"></canvas>
             </tr>
             </table >
                 <table id="grade-table">
@@ -174,11 +176,13 @@
 
 <!-- Element that opens the widget on click. It does not have to be an input -->
 <input placeholder="Search here" id="searchWidgetTrigger" class="input_bar">
-<iframe src="https://course.mytcas.com/universities" height="500" frameborder="0"></iframe>
+<h5>ระบบสืบค้นจะช่วยเหลือในการสืบค้นเอกสารของมหาวิทยาลัยและแนะนำเอกสารอื่นๆที่เกี่ยวข้องและสรุปด้วยปัญญาประดิษฐ์ </h5>
+<h3>ข้อแนะนำในการสืบค้น <h3 class="colorful-text">'สถาบัน'+'รอบ'+'เนื้อหา'</h3> </h3>
+<iframe src="https://course.mytcas.com/universities" height="500"  frameborder="0"></iframe>
 
 </div>
         </form>
-        
+       
     </div>
         <script type="module" src="a.js"></script>
         <script>
@@ -197,6 +201,7 @@
             // Function to close the popup
             function closePopup() {
                 document.getElementById('popup').style.display = 'none';
+                
             }
         
             // Event listener to trigger the popup after the site finishes loading
@@ -205,7 +210,7 @@
         
             
           
-        
+       
     </body>
 
 </html>

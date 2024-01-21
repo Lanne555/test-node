@@ -97,8 +97,11 @@ table[bgcolor="yellow"] {
     table-layout: fixed;
 }
 
-.user {
+.uni {
     text-align: left;
+}
+.fac{
+    text-align: right;
 }
 
 .logo-container {
@@ -129,7 +132,7 @@ td.bad {
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 410px;
     height: 100vh;
     background-color: rgb(208, 216, 173);
     padding: 20px;
@@ -219,3 +222,11 @@ td.bad {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 10px;
   }
+  .colorful-text {
+    background: linear-gradient(45deg, #ff6b6b, #ffa07a, #ffd700, #98fb98, #87ceeb);
+    background-color: #f0f0f0;
+    color: black;
+    font-size: 2em;
+    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+    }

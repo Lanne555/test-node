@@ -57,38 +57,21 @@
         return a === 0 ? null : a;
     }
     
-   
-    const ref = doc(db, "UserAuthList", UserCreds.uid);
-    const docSnap = await getDoc(ref);
-            sessionStorage.setItem("user-info", JSON.stringify({
-                StudentID: docSnap.data().StudentID,
-                NameInput: docSnap.data().NameInput,
-                Grade: docSnap.data().Grade,
-                G41: docSnap.data().G41,
-                G42: docSnap.data().G42,
-                G51: docSnap.data().G51,
-                G52: docSnap.data().G52,
-                G61: docSnap.data().G61,
-                G62: docSnap.data().G62,
-                Current: docSnap.data().Current,
-                G41_Goal: docSnap.data().G41_Goal,
-                University: docSnap.data().University,
-                Faculty: docSnap.data().Faculty,
-        
-            }));
+
             let SHEET_ID = '1GAHSaMvzSp6-GeIIJc8rZdz99peBoo0Qu8CBOy70euU';
             let SHEET_TITLE = 'university';
-            let SHEET_RANGE = 'A1:E115';
+            let SHEET_RANGE = 'A1:E268';
             let FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
-            let Logo_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${'logo'}&range=${'A2:I4'}`;
+            let Logo_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${'logo'}&range=${'A1:B22'}`;
             let R1_grade, R2_grade, R3_grade; // Declare variables in a higher scope
             
             fetch(FULL_URL)
                 .then(res => res.text())
                 .then(rep => {
-                    let data = JSON.parse(rep.substr(47).slice(0, -2));
+                    let data1 = JSON.parse(rep.substr(47).slice(0, -2));
+                    console.log(data1);
                     // Assign values to the variables in the higher scope
-                    ({ R1_grade, R2_grade, R3_grade } = populateDropdowns(data));
+                    ({ R1_grade, R2_grade, R3_grade } = populateDropdowns(data1));
                     comparedisplay(R1_grade, R2_grade, R3_grade )
                     console.log(R1_grade);
                 });
@@ -104,9 +87,10 @@
             }
             
             // Access the variables here, outside of the fetch block
-            function comparedisplay(R1,R2,R3){
+             async function comparedisplay(R1,R2,R3){
                 let x = (((5 * R1_grade)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
                 let gpax = ((UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61)/UserInfo.Current).toFixed(2);
+                console.log(zerocount)
                 Currentpage.innerText = `GPAX ปัจจุบัน`+gpax;
                 changeTextColorBasedOnGoal(UserInfo.G41,x,G41);
                 changeTextColorBasedOnGoal(UserInfo.G42,x,G42);
@@ -114,10 +98,10 @@
                 changeTextColorBasedOnGoal(UserInfo.G52,x,G52);
                 changeTextColorBasedOnGoal(UserInfo.G61,x, G61);
                 changeTextColorBasedOnGoal(UserInfo.G62,x, G62);
-                Compare.innerText = 'เกรดเทอมถัดไป = '+x;
+               
                 if (gpax >= R1_grade){
                     Check_R1.innerText= "Yes"; 
-                }else{
+                }else{ 
                     Check_R1.innerText='No';
                 }
                 if (gpax >= R2_grade){
@@ -129,58 +113,115 @@
                     Check_R3.innerText= "Yes"; 
                 }else{
                     Check_R3.innerText='No';
-                }    
+                }
+                if (R1_grade ===0){
+                    Check_R1.innerText= "ไม่มีประกาศ"; 
+                }
+                
+                if (R2_grade===0){
+                    
+                
+                    Check_R2.innerText="ไม่มีประกาศ";
+                }
+                if (R3_grade==0){
+                    Check_R3.innerText= "ไม่มีประกาศ"; 
+                }
                 if(x=='-Infinity'|| x =='Infinity' ){
                     alert("ข้อมูลไม่ถูกต้อง กรุณากรอกเกรดตามจำนวนที่มีอยู่")
                     Currentpage.innerText = `GPAX ปัจจุบันผิดพลาด`;
                     location.replace('b.html');
                 }else{
                     Currentpage.innerText = `GPAX ปัจจุบัน : `+gpax;
-                    if(UserInfo.Current==5){
+                }
+                if(UserInfo.Current==5){
                         G61_Goal.innerText = 'ได้รับแล้ว'
                         G52_Goal.innerText = 'ได้รับแล้ว'
                         G51_Goal.innerText = 'ได้รับแล้ว'
                         G42_Goal.innerText = 'ได้รับแล้ว'
-                        G41_Goal.innerText = 'ได้รับแล้ว'    
+                        G41_Goal.innerText = 'ได้รับแล้ว'
+                        
                     }else if(UserInfo.Current==4){
                             G61_Goal.innerText = x;
                             G52_Goal.innerText = 'ได้รับแล้ว'
                             G51_Goal.innerText = 'ได้รับแล้ว'
                             G42_Goal.innerText = 'ได้รับแล้ว'
                             G41_Goal.innerText = 'ได้รับแล้ว'
-                            
+                            UserInfo.G61 = 0;   
                     }else if(UserInfo.Current==3){
                             G61_Goal.innerText = x;
                             G52_Goal.innerText = x;
                             G51_Goal.innerText = 'ได้รับแล้ว'
                             G42_Goal.innerText = 'ได้รับแล้ว'
                             G41_Goal.innerText = 'ได้รับแล้ว'
-                            
+                            UserInfo.G61 = 0;  
+                            UserInfo.G52 = 0;  
                     }else if(UserInfo.Current==2){
                             G61_Goal.innerText = x;
                             G52_Goal.innerText = x;
                             G51_Goal.innerText = x;
                             G42_Goal.innerText = 'ได้รับแล้ว'
                             G41_Goal.innerText = 'ได้รับแล้ว'
+                            UserInfo.G61 = 0;  
+                            UserInfo.G52 = 0;  
+                            UserInfo.G51 = 0;  
+                    }else if(UserInfo.Current==1){
+                        UserInfo.G61 = 0;  
+                        UserInfo.G52 = 0;  
+                        UserInfo.G51 = 0;  
+                        UserInfo.G42 = 0;  
+                        G61_Goal.innerText = x;
+                        G52_Goal.innerText = x;
+                        G51_Goal.innerText = x;
+                        G42_Goal.innerText = x; 
+                        G41_Goal.innerText = 'ได้รับแล้ว'
                             
-                    }else{
-                            G61_Goal.innerText = x;
-                            G52_Goal.innerText = x;
-                            G51_Goal.innerText = x;
-                            G42_Goal.innerText = x; 
-                            G41_Goal.innerText = 'ได้รับแล้ว'
                           
                     }
+                       
+                    const ref = doc(db, "UserAuthList", UserCreds.uid);
+                    const docSnap = await getDoc(ref);
+                    sessionStorage.setItem("user-info", JSON.stringify({
+                    StudentID: docSnap.data().StudentID,
+                    NameInput: docSnap.data().NameInput,
+                    Grade: docSnap.data().Grade,
+                    G41: docSnap.data().G41,
+                    G42: docSnap.data().G42,
+                    G51: docSnap.data().G51,
+                    G52: docSnap.data().G52,
+                    G61: docSnap.data().G61,
+                    G62: docSnap.data().G62,
+                    Current: docSnap.data().Current,
+                    G41_Goal: docSnap.data().G41_Goal,
+                    University: docSnap.data().University,
+                    Faculty: docSnap.data().Faculty,
+        
+            })); 
+            console.log(UserInfo.Current)
                    
-                    //CHECK 
-                    
-                }
+            const ApperG41 = UserInfo.G41.toFixed(2);
+            const ApperG42 = UserInfo.G42.toFixed(2);
+            const ApperG51 = UserInfo.G51.toFixed(2);
+            const ApperG52 = UserInfo.G52.toFixed(2);
+            const ApperG61 = UserInfo.G61.toFixed(2);
+            const ApperG62 = UserInfo.G62.toFixed(2);
+            G41.innerText = ApperG41
+            G42.innerText =  ApperG42;
+            G51.innerText =  ApperG51;
+            G52.innerText =  ApperG52;
+            G61.innerText =  ApperG61;
+            G62.innerText =  ApperG62;
+            console.log(zerocount   )
                 let y = (((5 * R1_grade)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
                 let w = (((5 * R2_grade)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);
                 let e = (((5 * R3_grade)-(UserInfo.G41+UserInfo.G42+UserInfo.G51+UserInfo.G52+UserInfo.G61))/zerocount).toFixed(2);// You can change this to any constant value you want.
-                const constantNumber = y;
-                const constantNumber1 = w;
-                const constantNumber2 = e;
+                
+                function graph(a) {
+                    return a === 0 ? null : a;
+                }
+                
+                const constantNumber = graph(y);
+                const constantNumber1 = graph(w);
+                const constantNumber2 = graph(e);
                 const data = {
                     labels: ['ม.4 เทอม1', 'ม.4 เทอม2', 'ม.5 เทอม1', 'ม.5 เทอม2', 'ม.6 เทอม1', 'ม.6 เทอม2'],
                     datasets: [
@@ -201,29 +242,30 @@
                             pointHoverRadius: 15,
                         },
                         {
-                            label: 'เทอมถัดไปPortfolio',
+                            label: 'ขั้นตํ่าPortfolio',
                             data: Array(6).fill(constantNumber), // Creates an array with constantNumber repeated 6 times
                             borderColor: 'green',
                             fill: false,
                             borderDash: [5, 5], // Optional: makes the line dashed
                         },
                         {
-                            label: 'เทอมถัดไปQuota',
+                            label: 'ขั้นตํ่าQuota',
                             data: Array(6).fill(constantNumber1), // Creates an array with constantNumber repeated 6 times
                             borderColor: 'blue',
                             fill: false,
                             borderDash: [20, 20], // Optional: makes the line dashed
                         },
                         {
-                            label: 'เทอมถัดไปAdmission',
+                            label: 'ขั้นตํ่าAdmission',
                             data: Array(6).fill(constantNumber2), // Creates an array with constantNumber repeated 6 times
                             borderColor: 'purple',
                             fill: false,
                             borderDash: [40, 40], // Optional: makes the line dashed
+                            
                         },
                     ],
                 };
-                
+                Chart.defaults.font.size = 20;
                 new Chart(ctx, {
                     type: 'line',
                     data: data,
@@ -233,12 +275,18 @@
                             y: {
                                 beginAtZero: true,
                                 max: 4,
+                                
                             },
                         },
                         plugins: {
                             title: {
                                 display: true,
-                                text: (ctx) => 'พัฒนาการของเกรด',
+                                text: (ctx) => 'สถิติเกรดเฉลี่ยของชั้นมัธยมปลาย',
+                                font:{
+                                    size: 30,
+                                    
+                                }
+                                
                                 
                             }
                         }
@@ -255,14 +303,15 @@
         fetch(Logo_URL)
         .then(res => res.text())
         .then(rep => {
-          let data = JSON.parse(rep.substr(47).slice(0,-2));
-          console.log(data)
-            Univer_logo(data)
+          let data2 = JSON.parse(rep.substr(47).slice(0,-2));
+          console.log(data2)
+            Univer_logo(data2)
         });
         function Univer_logo(data){
-            var filteredData = data.table.rows.filter(row => row.c[0].v === UserInfo.University);
+            var filteredData = data.table.rows.filter(row => row.c[0].v === UserInfo.University );
             
             let Uni_img = filteredData.length > 0 ? filteredData[0].c[1].v : '';
+            
             Uni_logo.src = Uni_img;
             
         }
@@ -273,7 +322,7 @@
     if (UserInfo.G51 == 0) {zerocount=zerocount+1};
     if (UserInfo.G52 == 0){zerocount=zerocount+1};
     if (UserInfo.G61 == 0) {zerocount=zerocount+1};
-    if (UserInfo.G62 == 0) {zerocount=zerocount+1};
+  
 
     //console.log(UserUni.uniname)
   
@@ -281,29 +330,16 @@
   
     
     
-    const ApperG41 = UserInfo.G41.toFixed(2);
-    const ApperG42 = UserInfo.G42.toFixed(2);
-    const ApperG51 = UserInfo.G51.toFixed(2);
-    const ApperG52 = UserInfo.G52.toFixed(2);
-    const ApperG61 = UserInfo.G61.toFixed(2);
-    const ApperG62 = UserInfo.G62.toFixed(2);
-    
-    
-    
+     
     
     MSG.innerText = `Name : ${UserInfo.NameInput}`;      
     Idap.innerText = `StudentID : ${UserInfo.StudentID}`;
-    G41.innerText = ApperG41
    
     
-console.log(UserInfo.Current) 
+    console.log(UserInfo) 
 
     
-    G42.innerText =  ApperG42;
-    G51.innerText =  ApperG51;
-    G52.innerText =  ApperG52;
-    G61.innerText =  ApperG61;
-    G62.innerText =  ApperG62;
+   
     Unicall.innerText = UserInfo.University;
     Faccall.innerText = UserInfo.Faculty
  
@@ -341,32 +377,8 @@ signoutBtn.addEventListener('click', signout1);
 
 
 
-  var uniDropdown = document.getElementById('uniDropdown');
-  var facDropdown = document.getElementById('facDropdown');
-  var R1show = document.getElementById('R1');
-  var R2show = document.getElementById('R2');
-  var R3show = document.getElementById('R3');
-  var currentterm = document.getElementById("termDropdown");
-
-  // Extract unique universities from the data
- 
 
   
 
-
-  let Gradevar41 = document.getElementById('gpa41')
-  let Gradevar42 = document.getElementById('gpa42')
-  let Gradevar51 = document.getElementById('gpa51')
-  let Gradevar52 = document.getElementById('gpa52')
-  let Gradevar61 = document.getElementById('gpa61')
-  let Gradevar62 = document.getElementById('gpa62')
-  console.log(UserInfo.G41)
-  Gradevar41.value = UserInfo.G41
-  Gradevar42.value = UserInfo.G42
-  Gradevar51.value = UserInfo.G51
-  Gradevar52.value = UserInfo.G52
-  Gradevar61.value = UserInfo.G61
-  Gradevar62.value = UserInfo.G62
-
-
+    
 

@@ -48,58 +48,76 @@ gradeForm.addEventListener('submit',(evt) => {
     let Faculty1 = document.getElementById("facDropdown").value;
    
     let currentterm = document.getElementById("termDropdown").value;
+    console.log(currentterm)
      Addgrade(Gradevar41,Gradevar42,Gradevar51,Gradevar52,Gradevar61,Gradevar62,University,Faculty1,currentterm);
     
 });
 
-export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5,Gradevar6,UniversityDB,FacultyDB,CurrentDB) {
-    try{
-        const UserCreds = JSON.parse(sessionStorage.getItem("user-creds")); // Move this inside the function
-        const ref = doc(db, "UserAuthList", UserCreds.uid);
-        await updateDoc(ref, {
-            G41: Gradevar1,
-            G42: Gradevar2,
-            G51: Gradevar3,
-            G52: Gradevar4,
-            G61: Gradevar5,
-            G62: Gradevar6,
-            University: uniDropdown.value,
-            Faculty: facDropdown.value,
-            Current: Number(termDropdown.value)        
-            });
-        const docSnap = await getDoc(ref);
-        sessionStorage.setItem("user-info", JSON.stringify({
-            StudentID: docSnap.data().StudentID,
-            NameInput: docSnap.data().NameInput,
-            Grade: docSnap.data().Grade,
-            G41: docSnap.data().G41,
-            G42: docSnap.data().G42,
-            G51: docSnap.data().G51,
-            G52: docSnap.data().G52,
-            G61: docSnap.data().G61,
-            G62: docSnap.data().G62,
-            Current: docSnap.data().Current,
-            G41_Goal: docSnap.data().G41_Goal,
-            G42_Goal: docSnap.data().G42_Goal,
-            University: docSnap.data().University,
-            Faculty: docSnap.data().Faculty,
-            
-        }
-    
-        ));
-     
-        
-        location.replace('a.html');
-    } catch(error){
-        alert("กรอกไม่ครบ");
-    }
+export async function Addgrade(Gradevar1, Gradevar2, Gradevar3, Gradevar4, Gradevar5, Gradevar6, UniversityDB, FacultyDB, a) {
+  try {
+      // Conditions to set specific grade values to 0 based on the value of 'a'
+      if (a == 5) {
+          // Handle case when a is 5
+      } else if (a == 4) {
+          Gradevar5 = 0;
+      } else if (a == 3) {
+          Gradevar5 = 0;
+          Gradevar4 = 0;
+      } else if (a == 2) {
+          Gradevar5 = 0;
+          Gradevar4 = 0;
+          Gradevar3 = 0;
+      } else if (a == 1) {
+          Gradevar5 = 0;
+          Gradevar4 = 0;
+          Gradevar3 = 0;
+          Gradevar2 = 0;
+      }
 
+      const UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+      const ref = doc(db, "UserAuthList", UserCreds.uid);
+
+      // Use UniversityDB and FacultyDB in the update
+      await updateDoc(ref, {
+          G41: Gradevar1,
+          G42: Gradevar2,
+          G51: Gradevar3,
+          G52: Gradevar4,
+          G61: Gradevar5,
+          G62: Gradevar6,
+          University: UniversityDB,  // Use the correct variable here
+          Faculty: FacultyDB,        // Use the correct variable here
+          Current: Number(termDropdown.value)
+      });
+
+      const docSnap = await getDoc(ref);
+      sessionStorage.setItem("user-info", JSON.stringify({
+          StudentID: docSnap.data().StudentID,
+          NameInput: docSnap.data().NameInput,
+          Grade: docSnap.data().Grade,
+          G41: docSnap.data().G41,
+          G42: docSnap.data().G42,
+          G51: docSnap.data().G51,
+          G52: docSnap.data().G52,
+          G61: docSnap.data().G61,
+          G62: docSnap.data().G62,
+          Current: docSnap.data().Current,
+          G41_Goal: docSnap.data().G41_Goal,
+          G42_Goal: docSnap.data().G42_Goal,
+          University: docSnap.data().University,
+          Faculty: docSnap.data().Faculty,
+      }));
+
+      location.replace('a.html');
+  } catch (error) {
+      alert("กรอกไม่ครบ");
+  }
 }
 
 
 let SHEET_ID = '1GAHSaMvzSp6-GeIIJc8rZdz99peBoo0Qu8CBOy70euU';
-let SHEET_TITLE = 'university';
-let SHEET_RANGE = 'A1:E115';
+let SHEET_TITLE = 'university'
+let SHEET_RANGE = 'A1:E268' 
 let FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
 
 fetch(FULL_URL)
@@ -136,7 +154,7 @@ function populateDropdowns(data) {
   uniDropdown.addEventListener('change', function () {
     var selectedUni = uniDropdown.value;
     console.log(selectedUni)
-    populateFacDropdown(selectedUni, data);
+    populateFacDropdown(selectedUni,data);
   });
 
   // Event listener for faculty dropdown
@@ -225,3 +243,4 @@ function displayTable(term) {
 
 
 
+  
