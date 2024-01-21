@@ -99,7 +99,7 @@ export async function Addgrade(Gradevar1,Gradevar2,Gradevar3,Gradevar4,Gradevar5
 
 let SHEET_ID = '1GAHSaMvzSp6-GeIIJc8rZdz99peBoo0Qu8CBOy70euU';
 let SHEET_TITLE = 'university';
-let SHEET_RANGE = 'A1:E59';
+let SHEET_RANGE = 'A1:E115';
 let FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
 
 fetch(FULL_URL)

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <title>High School GPA Dashboard</title>
         <link rel="stylesheet" href="a.css">
         <style>
@@ -33,8 +33,7 @@
             <button onclick="closePopup()" class="other-button">Close</button>
         </div>
         </div>
-        <h1>ผู้ใช้ใหม่ต้องแก้ไขเกรดก่อน ข้อมุลจึงจะแสดงผล</h1>
-        <h2>หากข้อมูลไม่แสดงผลโปรดกดโหลดหน้าใหม่</h2>
+        
         <div class="container">
             <header>
                 <h1>Welcome to the High School GPA Dashboard</h1>
@@ -79,7 +78,7 @@
                     
                     
                 </td>
-            
+                <canvas id="myChart"></canvas>
             </tr>
             </table >
                 <table id="grade-table">
@@ -160,7 +159,7 @@
         </div>
         <form id="aichat">
         <div class="large-page">
-            <button id="signout" type="button" class="sign-out-button">signout</button>        
+            <button id="signout_bu" type="button" class="sign-out-button">signout</button>        
             <h2>แนะแนวมหาวิทยาลัยด้วยปัญญาประดิษฐ์</h2>
             <!-- Widget JavaScript bundle -->
 <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=th">
@@ -203,6 +202,9 @@
             // Event listener to trigger the popup after the site finishes loading
             window.addEventListener('load', showPopup);
         </script>
+        
+            
+          
         
     </body>
 
