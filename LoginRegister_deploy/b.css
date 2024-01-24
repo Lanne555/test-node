@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@1,300&family=Chakra+Petch&family=Mali:ital,wght@1,300&display=swap');
 /* Reset some default styles to ensure consistent rendering */
 body, h1, h2, table {
     margin: 0;
@@ -60,6 +60,7 @@ th {
 
 /* Style the table cells */
 td {
+    background-color: #e3e4e6;
     padding: 10px;
     text-align: center;
     border: 1px solid #ddd; /* Smoother borders */
@@ -113,10 +114,7 @@ table[bgcolor="yellow"] {
     margin-right: 10px;
 }
 
-.details {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .logo-container h3 {
     margin: 0;
@@ -140,6 +138,7 @@ table[bgcolor="yellow"] {
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    float: right;
   }
   .custom {
     background-color: palegreen; /* Set your desired background color */
@@ -149,25 +148,26 @@ table[bgcolor="yellow"] {
   #btn-save{
     width: max-content;
     height: max-content ;
-    background-color: yellow;
+    background-color: palevioletred;
     border-radius:0.3vw;
   }
   
   #termDropdown{
-    background-color:rgb(219, 76, 124) ;
-    color: white    ;
+    background-color:whitesmoke ;
+    color: black    ;
     border-radius:0.3vw;
   }
 
  .drbox-u{
-    background-color: blueviolet;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     border-radius:0.3vw;
-    width: max-content;
+    width: max-content; 
  } 
 
  .rescale-input{
-    background-color: cyan ;
+    background-color: white ;
+
     border-radius:0.4vw;
  }
 
@@ -182,9 +182,31 @@ table[bgcolor="yellow"] {
     text-align: center;
     border: 1px solid #fff; /* Smoother borders */
     border-radius:0.3vw;
+    border: #333;
 }
 
 .main-th1{
     width: max-content;
-    margin-right: auto;  
+    margin-right: auto;     
 }
+
+h3,label,caption,th{
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+#uniDropdown,#facDropdown{
+    width:12vw;
+    font-size: medium;
+}
+
+.details{
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.text2{
+    text-align: left;
+}
+

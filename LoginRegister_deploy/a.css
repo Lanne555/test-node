@@ -23,8 +23,8 @@ body {
 
 /* Style the header with a smoother box shadow */
 header {
-    background-color: #a85e9e;
-    color: #fff;
+    background-color: #e3e4e6;
+    color: #0084ff;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
@@ -37,6 +37,7 @@ header {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
+    background-color: #e3e4e6;
 }
 
 /* Style the GPA table */
@@ -51,7 +52,7 @@ table {
 
 /* Style the table header */
 th {
-    background-color: #1c3977;
+    background-color: #224f97;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -78,7 +79,7 @@ caption {
 
 /* Style the goal cells differently */
 th[id$="_Goal"] {
-    color:aqua;
+    color:white;
 }
 
 /* Style the yellow-colored subtables */
@@ -132,9 +133,9 @@ td.bad {
     position: fixed;
     top: 0;
     right: 0;
-    width: 410px;
+    width: 20VW;
     height: 100vh;
-    background-color: rgb(208, 216, 173);
+    background-color: #8eb6f8;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto; /* Enable vertical scrolling if needed */
@@ -187,6 +188,22 @@ td.bad {
     font-weight: bold;
     transition: background-color 0.3s ease;
   }
+
+  #show-off{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0084ff; /* Set your desired background color */
+    color: #ffffff; /* Set your desired text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    float: right;
+  }
+  
   .other-button {
     display: inline-block;
     padding: 10px 20px;
@@ -248,7 +265,7 @@ td.bad {
     }
 
     .suggest {
-        display: inline-block;
+        display: block;
         padding: 10px 20px;
         background-color: #eca200; /* Set your desired background color */
         color: #ffffff; /* Set your desired text color */
@@ -259,6 +276,8 @@ td.bad {
         font-size: 25px;
         font-weight: bold;
         transition: background-color 0.3s ease;
+        margin-left:auto;
+        margin-right: auto;
       }
       .sugegst:hover {
         background-color: #cc0000; /* Change the background color on hover */
@@ -285,15 +304,21 @@ td.bad {
   
       .skeleton-block:last-child {
         margin-right: 0;
-
       }
-.alart{
-    width:150vh;
-    background-color:wheat;
-    
-}
+
 
 .alarttext{
-    color:blue;   
+    color:red;
+    font-size: medium;
 }
 
+.con1{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.con2{
+    margin-top:1vh;
+    background-color: white;
+    border-radius: 10px;
+}
