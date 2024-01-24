@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skeleton Loading</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .skeleton-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .skeleton-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .skeleton-block {
+      flex: 1;
+      height: 15px;
+      background-color: #e0e0e0;
+      margin-right: 10px;
+    }
+
+    .skeleton-block:last-child {
+      margin-right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="skeleton-container">
+    <!-- Skeleton Row 1 -->
+    <div class="skeleton-row">
+      <div class="skeleton-block">a</div>
+      <div class="skeleton-block"></div>
+      <div class="skeleton-block"></div>
+    </div>
+
+    <!-- Skeleton Row 2 -->
+    <div class="skeleton-row">
+      <div class="skeleton-block"></div>
+      <div class="skeleton-block"></div>
+      <div class="skeleton-block"></div>
+    </div>
+
+    <!-- Skeleton Row 3 -->
+    <div class="skeleton-row">
+      <div class="skeleton-block"></div>
+      <div class="skeleton-block"></div>
+      <div class="skeleton-block"></div>
+    </div>
+  </div>
+</body>
+</html>

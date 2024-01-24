@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะแนวมหาวืยาลัยAI</title>
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2Flogo-bd2-260x300.png?alt=media&token=53bf4721-567b-442d-b5ac-7af01c166fb4" type="image/x-icon">
+    <link rel="stylesheet" href="b.css">
+    <style>
+        /* Style for the popup */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="popup">
+        <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide-02.png?alt=media&token=1cb33425-3ad0-44cf-a11e-ee7de2ff7ec5" class="img">
+        <button onclick="closePopup()" class="other-button">Close</button>
+    </div>
+    <div class="container">
+        <header>
+            <h1>EDIT GPA Dashboard</h1>
+            
+        </header>
+
+        <section class="dashboard">
+           <table class="Info"> <tr>
+            <td class="user"><table>
+                <caption>ข้อมูลนักเรียน</caption>
+                <tr>
+                    <th class="main-th">
+                        <div class="logo-container">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2F50219.jpg?alt=media&token=19569d0f-aae3-4cdf-ae9a-092761feb57d" class="logo" alt="University Logo">
+                            <div class="details">
+                                <h3 id="name1" class="user"></h3>
+                                <h3 id="stuid1" class="user"></h3>
+                                <h3 class="user"><label>ผลเกรดล่าสุด</label>
+                                    <select id="termDropdown" name="University">
+                                    <option value="1">ม.4 เทอม1</option>
+                                    <option value="2">ม.4 เทอม2</option>
+                                    <option value="3">ม.5 เทอม1</option>
+                                    <option value="4">ม.5 เทอม2</option>
+                                 
+                                  </select></h3>
+                                <form id="editgrade">    <input id="btn-save" type="submit" value="Save">
+                                
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </table></h3></td>
+            <td>
+                <table>
+                    <caption>เป้าหมายมหาวิทยาลัย</caption>
+                    <tr>
+                        <th class="main-th1">
+                            <div class="logo-container">
+                             
+                                <div class="details">
+                                    <h3><label for="uniDropdown" class="logo">มหาวิทยาลัย:</label> 
+                                        <select id="uniDropdown" name="University" class="drbox-u">
+                                           
+                                       
+                                      </select></h3>
+                                    <h3><label for="facDropdown" class="logo">คณะ:</label> 
+                                        <select id="facDropdown" name="University" class="drbox-u">
+                                        
+                                      </select></h3>
+                                    
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+                
+                
+            </td>
+           
+        </tr>
+           </table >
+            <table id="grade-table">
+                <thead>
+                    <tr>
+                        <th>ม.4</th>
+                        <th>ม.5</th>
+                        
+                        
+                    </tr>
+                    <tr>
+                        
+                        <td>
+                            <table style="display: table;" id="table1"  >
+                                <caption>GPA เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa41"  step="0.01" min="0" max="4"  value=" " required></th>
+                                
+                            </table>
+                            <table  style="display: none;" id="table2">
+                                <caption>GPA เทอม2</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa42"  step="0.01" min="0" max="4" value="" required></th>
+                                
+                            </table>
+                        </td>
+
+                        <td>
+                            <table  style="display: none;" id="table3">
+                                <caption>GPA เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa51"  step="0.01" min="0" max="4"  value=""required></th>
+                                
+                            </table >
+                            <table  style="display: none;" id="table4">
+                                <caption>GPA เทอม2</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa52"  step="0.01" min="0" max="4"  value=""required></th>
+
+                            </table>
+                        </td>
+
+                        <td>
+                            <table  style="display: none;" id="table5">
+                                <caption>GPA เทอม1</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa61"  step="0.01" min="0" max="4" value="" required></th>
+                                
+                            </table>
+                            <table  style="display: none;" id="table6">
+                                <caption>GPA เทอม2</caption>
+                                <th ><input type="number" class="rescale-input" id="gpa62" step="0.01" min="0" max="4" value="" required ></th>
+                                
+                            </table>
+                        </td>
+
+                        
+                                
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Add rows dynamically using JavaScript -->
+                </tbody>
+            </table>
+            
+        </section>
+    </form>
+    </div>
+    <script type="module" src="b.js"></script>
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+    
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    
+        // Event listener to trigger the popup after the site finishes loading
+        window.addEventListener('load', showPopup);
+    </script>
+    
+</body>
+
+</html>
