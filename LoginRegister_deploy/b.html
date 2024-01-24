@@ -20,18 +20,13 @@
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 9999;
-            width: auto;
-            height: 80vh;
-        }
-        #img-pop{
-            height: 75vh;
         }
     </style>
 </head>
 
 <body>
     <div id="popup">
-        <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide-02.png?alt=media&token=1cb33425-3ad0-44cf-a11e-ee7de2ff7ec5" class="img" id="img-pop">
+        <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide-02.png?alt=media&token=1cb33425-3ad0-44cf-a11e-ee7de2ff7ec5" class="img">
         <button onclick="closePopup()" class="other-button">Close</button>
     </div>
     <div class="container">
@@ -51,12 +46,14 @@
                             <div class="details">
                                 <h3 id="name1" class="user"></h3>
                                 <h3 id="stuid1" class="user"></h3>
-                                <h3 class="user"><label class="text1">ผลเกรดล่าสุด</label>
+                                <h3 class="user"><label>ผลเกรดล่าสุด</label>
                                     <select id="termDropdown" name="University">
                                     <option value="1">ม.4 เทอม1</option>
                                     <option value="2">ม.4 เทอม2</option>
                                     <option value="3">ม.5 เทอม1</option>
                                     <option value="4">ม.5 เทอม2</option>
+                                    <option value="5">ม.6 เทอม1</option>
+                                    <option value="6">ม.6 เทอม2</option>
                                   </select></h3>
                                 <form id="editgrade">    <input id="btn-save" type="submit" value="Save">
                                 
@@ -67,23 +64,21 @@
             </table></h3></td>
             <td>
                 <table>
-                    <caption class="text1"  >เป้าหมายมหาวิทยาลัย</caption>
+                    <caption>เป้าหมายมหาวิทยาลัย</caption>
                     <tr>
-                        <th class="main-th1">   
+                        <th class="main-th1">
                             <div class="logo-container">
                              
                                 <div class="details">
-                                    <label for="uniDropdown" class="text2" id="teu">มหาวิทยาลัย:</label> 
+                                    <h3><label for="uniDropdown" class="logo">มหาวิทยาลัย:</label> 
                                         <select id="uniDropdown" name="University" class="drbox-u">
                                            
                                        
-                                      </select>
-                                    <label for="facDropdown" class="text2">คณะ:</label> 
+                                      </select></h3>
+                                    <h3><label for="facDropdown" class="logo">คณะ:</label> 
                                         <select id="facDropdown" name="University" class="drbox-u">
-
                                         
-                                        
-                                      </select>
+                                      </select></h3>
                                     
                                 </div>
                             </div>
@@ -101,7 +96,7 @@
                     <tr>
                         <th>ม.4</th>
                         <th>ม.5</th>
-                        
+                        <th>ม.6</th>
                         
                     </tr>
                     <tr>
@@ -130,6 +125,9 @@
                                 <th ><input type="number" class="rescale-input" id="gpa52"  step="0.01" min="0" max="4"  value=""required></th>
 
                             </table>
+                        </td>
+
+                        <td>
                             <table  style="display: none;" id="table5">
                                 <caption>GPA เทอม1</caption>
                                 <th ><input type="number" class="rescale-input" id="gpa61"  step="0.01" min="0" max="4" value="" required></th>
@@ -140,6 +138,7 @@
                                 <th ><input type="number" class="rescale-input" id="gpa62" step="0.01" min="0" max="4" value="" required ></th>
                                 
                             </table>
+                        </td>
 
                         
                                 

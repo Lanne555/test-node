@@ -132,7 +132,7 @@ td.bad {
     position: fixed;
     top: 0;
     right: 0;
-    width: 20VW;
+    width: 410px;
     height: 100vh;
     background-color: rgb(208, 216, 173);
     padding: 20px;
@@ -285,6 +285,7 @@ td.bad {
   
       .skeleton-block:last-child {
         margin-right: 0;
+
       }
 .alart{
     width:150vh;
@@ -295,3 +296,4 @@ td.bad {
 .alarttext{
     color:blue;   
 }
+
