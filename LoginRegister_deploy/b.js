@@ -238,7 +238,8 @@ function displayTable(term) {
   Gradevar42.value = UserInfo.G42
   Gradevar51.value = UserInfo.G51
   Gradevar52.value = UserInfo.G52
-
+  Gradevar61.value = UserInfo.G61
+  Gradevar62.value = UserInfo.G62
 
 
 
