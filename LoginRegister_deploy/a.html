@@ -3,7 +3,6 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="showof.js"></script>
         <title>แนะแนวมหาวืยาลัยAI</title>
@@ -23,14 +22,14 @@
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
                 z-index: 9999;
             }
+            
         </style>
     </head>
 
     <body>
-        <div class="alart">
-        <h1 class="alarttext">เมื่อเข้าสู่ระบบเเล้วโปรด กดเริ่มต้นใช้งาน</h1>
-        <h2 class="alarttext"> *หมายเหตุ เกรดขั้นตํ่าคือการคำนวนเกรดเฉลี่ยขั้นตํ่าในเทอมที่เหลือ(5เทอม)ที่จะเฉลี่ยทั้งหมดแล้วเท่ากับเป้าหมาย</h2>
-        </div>  
+        
+        
+        
         <div id="popup">
             <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2Fguide.bmp.png?alt=media&token=414a8050-6d03-404b-8e7c-ee24b0d713f9" class="img" id="originalImage">
             <button onclick="showAnotherImage()" class="other-button" id="press">Press</button>
@@ -44,9 +43,13 @@
             <header>
                 <h1>Welcome to the High School GPA Dashboard</h1>
             </header>
-         
+            
             <section class="dashboard">
             <button id="suggest" class="suggest">เริ่มต้นใช้งาน</button>
+            <div class="con2">
+            <canvas id="myChart" width="700" height="400"></canvas>
+            </div>
+            <div class="con1">
             <table class="Info"> <tr>
                 <td class="user"><table>
                     <caption>ข้อมูลนักเรียน</caption>
@@ -84,7 +87,7 @@
                     
                     
                 </td>
-                <canvas id="myChart" width="700" height="400"></canvas>
+                
             </tr>
             </table >
                 <table id="grade-table">
@@ -161,12 +164,12 @@
                 </table>
                 
             </section>
-          
+            </div>
         </div>
         <form id="aichat">
         <div class="large-page">
             <button id="signout_bu" type="button" class="sign-out-button">signout</button>
-            <button id="show-off" type="button" onclick="">show</button>
+            
   
             <h2>แนะแนวมหาวิทยาลัยด้วยปัญญาประดิษฐ์</h2>
             <!-- Widget JavaScript bundle -->
@@ -186,6 +189,8 @@
 <h5>* จุฬา ลาดกระบัง มีเอกสารระดับคณะ</h5>
 <h5>* มหาวิทยาลัยอื่นๆ มีเอกสารระดับรอบTCAS</h5>
 <h3>ข้อแนะนำในการสืบค้น <h3 class="colorful-text">'สถาบัน'+'คณะ'</h3> </h3>
+<h2 class="alarttext">เมื่อเข้าสู่ระบบเเล้วโปรด กดเริ่มต้นใช้งาน</h2>
+<h3 class="alarttext"> *หมายเหตุ เกรดขั้นตํ่าคือการคำนวนเกรดเฉลี่ยขั้นตํ่าในเทอมที่เหลือ(5เทอม)ที่จะเฉลี่ยทั้งหมดแล้วเท่ากับเป้าหมาย</h3>
 
 
 </div>

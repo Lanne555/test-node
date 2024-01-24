@@ -23,7 +23,7 @@ body {
     margin-right: auto;
     width:40%;
     height:65vh;
-    background-color: #4279e0;
+    background-color: #224f97;
     margin-top:4vh; 
     border-radius:2vh;
     padding:2vh;
@@ -61,7 +61,7 @@ body {
     display: block;
     height:4vh;
     border-radius:0.5vh;
-    background-color:#5d94fc ;
+    background-color:#224f97 ;
     border-style: solid;
     border-width: 0.1vh;
     font-size:1.5vh;
