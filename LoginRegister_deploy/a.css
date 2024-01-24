@@ -230,3 +230,59 @@ td.bad {
     letter-spacing: 2px;
     font-family: 'Arial', sans-serif;
     }
+.img-page {
+        position: fixed;
+        top: 0;
+        
+        left: 0;
+        width: 7000px;
+        height: 1000    vh;
+        
+        padding: 20px;
+        
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+    }
+    .img-page img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .suggest {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #eca200; /* Set your desired background color */
+        color: #ffffff; /* Set your desired text color */
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+      .sugegst:hover {
+        background-color: #cc0000; /* Change the background color on hover */
+      }
+      .skeleton-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+  
+      .skeleton-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+  
+      .skeleton-block {
+        flex: 1;
+        height: 15px;
+        background-color: #e0e0e0;
+        margin-right: 10px;
+      }
+  
+      .skeleton-block:last-child {
+        margin-right: 0;
+      }

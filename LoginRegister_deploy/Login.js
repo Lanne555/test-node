@@ -27,7 +27,7 @@ export function signInUser(emailInput, passwordInput) {
             const docSnap = await getDoc(ref);
 
             if (docSnap.exists()) {
-                alert("Login success!!");
+                
                 console.log("True");
                 sessionStorage.setItem("user-info", JSON.stringify({
                     StudentID: docSnap.data().StudentID,
@@ -40,7 +40,7 @@ export function signInUser(emailInput, passwordInput) {
                     G61: docSnap.data().G61,
                     G62: docSnap.data().G62,
                 }));
-                alert(credentials.user.uid)
+                
                 sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
                 location.replace('a.html');
             }

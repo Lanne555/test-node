@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High School GPA Dashboard</title>
+    <title>แนะแนวมหาวืยาลัยAI</title>
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2Flogo-bd2-260x300.png?alt=media&token=53bf4721-567b-442d-b5ac-7af01c166fb4" type="image/x-icon">
     <link rel="stylesheet" href="b.css">
     <style>
         /* Style for the popup */
@@ -39,7 +40,7 @@
             <td class="user"><table>
                 <caption>ข้อมูลนักเรียน</caption>
                 <tr>
-                    <th>
+                    <th class="main-th">
                         <div class="logo-container">
                             <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2F50219.jpg?alt=media&token=19569d0f-aae3-4cdf-ae9a-092761feb57d" class="logo" alt="University Logo">
                             <div class="details">
@@ -54,7 +55,7 @@
                                     <option value="5">ม.6 เทอม1</option>
                                     <option value="6">ม.6 เทอม2</option>
                                   </select></h3>
-                                <form id="editgrade">    <input type="submit" value="Save">
+                                <form id="editgrade">    <input id="btn-save" type="submit" value="Save">
                                 
                             </div>
                         </div>
@@ -65,17 +66,17 @@
                 <table>
                     <caption>เป้าหมายมหาวิทยาลัย</caption>
                     <tr>
-                        <th>
+                        <th class="main-th1">
                             <div class="logo-container">
                              
                                 <div class="details">
                                     <h3><label for="uniDropdown" class="logo">มหาวิทยาลัย:</label> 
-                                        <select id="uniDropdown" name="University">
+                                        <select id="uniDropdown" name="University" class="drbox-u">
                                            
                                        
                                       </select></h3>
                                     <h3><label for="facDropdown" class="logo">คณะ:</label> 
-                                        <select id="facDropdown" name="University">
+                                        <select id="facDropdown" name="University" class="drbox-u">
                                         
                                       </select></h3>
                                     

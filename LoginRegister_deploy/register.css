@@ -118,10 +118,10 @@ body {
     width:13vw;
     height:4vh;
     border-radius:0.5vh;
-    background-color:whitesmoke;
+    background-color:#d814ce;
     font-size:1.5vh;
     float: left;
-    color: #4279e0;
+    color: whitesmoke;
     transition: 250ms;
 }
 
@@ -133,10 +133,8 @@ body {
     font-size:1.5vh;
     float: right;
     transition: 250ms;
-    color: #4279e0;
+    color: #d814ce;
 }
-
-
 
 
 

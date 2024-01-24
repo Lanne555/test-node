@@ -32,8 +32,15 @@ export function registerUser(emailInput, passwordInput, studentIDInput, nameInpu
                 Email:emailInput,
                 StudentID: studentIDInput,
                 NameInput: nameInput,
-                
+                G41:0,
+                G42:0,
+                G51:0,
+                G52:0,
+                G61:0,
+                G62:0,
+
             });
+            location.replace('Login.html');
         })
         .catch(error => {
             alert(`Registration failed: ${error.message}`);

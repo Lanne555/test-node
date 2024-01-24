@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@1,300&display=swap');
 /* Reset some default styles to ensure consistent rendering */
 body, h1, h2, table {
     margin: 0;
@@ -8,14 +9,14 @@ body, h1, h2, table {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: whitesmoke;
 }
 
 /* Style the container with a smoother box shadow */
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: plum;
+    background-color: whitesmoke;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -23,12 +24,11 @@ body {
 
 /* Style the header with a smoother box shadow */
 header {
-    background-color: navy;
-    color: #fff;
+    color: #3480fa;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #e3e4e6;
 }
 
 /* Style the dashboard section with a smoother box shadow */
@@ -51,7 +51,7 @@ table {
 
 /* Style the table header */
 th {
-    background-color: rgb(105, 162, 207);
+    background-color: #224f97;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -90,6 +90,7 @@ table[bgcolor="yellow"] {
 /* Add styles for goal exceeded */
 .th, .td {
     vertical-align: top;
+    
 }
 
 .Info {
@@ -144,4 +145,46 @@ table[bgcolor="yellow"] {
     background-color: palegreen; /* Set your desired background color */
     color: #333; /* Set the text color */
   }
+
+  #btn-save{
+    width: max-content;
+    height: max-content ;
+    background-color: yellow;
+    border-radius:0.3vw;
+  }
   
+  #termDropdown{
+    background-color:rgb(219, 76, 124) ;
+    color: white    ;
+    border-radius:0.3vw;
+  }
+
+ .drbox-u{
+    background-color: blueviolet;
+    color: white;
+    border-radius:0.3vw;
+    width: max-content;
+ } 
+
+ .rescale-input{
+    background-color: cyan ;
+    border-radius:0.4vw;
+ }
+
+.Info{
+    background-color: #e3e4e6;
+}
+
+.main-th,.main-th1 {
+    background-color: #224f97;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #fff; /* Smoother borders */
+    border-radius:0.3vw;
+}
+
+.main-th1{
+    width: max-content;
+    margin-right: auto;  
+}
