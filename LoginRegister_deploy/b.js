@@ -243,5 +243,4 @@ function displayTable(term) {
 
 
 
-
   
