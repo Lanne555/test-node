@@ -138,6 +138,7 @@ table[bgcolor="yellow"] {
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    float: right;
   }
   .custom {
     background-color: palegreen; /* Set your desired background color */
@@ -147,7 +148,7 @@ table[bgcolor="yellow"] {
   #btn-save{
     width: max-content;
     height: max-content ;
-    background-color: #224f97;
+    background-color: palevioletred;
     border-radius:0.3vw;
   }
   

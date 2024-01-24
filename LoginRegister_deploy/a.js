@@ -329,7 +329,7 @@
       .then(rep => {
         let data2 = JSON.parse(rep.substr(47).slice(0,-2));
         console.log(data2)
-          Univer_logo(data2)
+        Univer_logo(data2)
       });
       function Univer_logo(data){
           var filteredData = data.table.rows.filter(row => row.c[0].v === UserInfo.University );

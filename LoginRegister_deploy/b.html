@@ -20,13 +20,18 @@
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 9999;
+            width: auto;
+            height: 80vh;
+        }
+        #img-pop{
+            height: 75vh;
         }
     </style>
 </head>
 
 <body>
     <div id="popup">
-        <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide-02.png?alt=media&token=1cb33425-3ad0-44cf-a11e-ee7de2ff7ec5" class="img">
+        <img src="https://firebasestorage.googleapis.com/v0/b/ai-pdfchat.appspot.com/o/University_logo%2FGuide-02.png?alt=media&token=1cb33425-3ad0-44cf-a11e-ee7de2ff7ec5" class="img" id="img-pop">
         <button onclick="closePopup()" class="other-button">Close</button>
     </div>
     <div class="container">
